@@ -1,7 +1,7 @@
 class Log4j:
     def __init__(self, spark):
-        #log4j = spark._jvm.org.apache.log4j # Ini penerapan lama untuk log4j 1.x - SUDAH USANG
-        log4j = spark._jvm.org.apache.logging.log4j # ini penerapan yang baru untuk log4j 2.x
+        #log4j = spark._jvm.org.apache.log4j # This is an old implementation for log4j 1.x - DEPRECATED
+        log4j = spark._jvm.org.apache.logging.log4j # this is a new implementation for log4j 2.x
         root_class = "engineer.studiesproject.spark.example"
 
         conf = spark.sparkContext.getConf()

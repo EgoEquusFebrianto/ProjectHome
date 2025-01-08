@@ -2,10 +2,10 @@ from pyspark.sql import *
 from lib.logging import Log4j
 import os
 
-os.environ['SPARK_LOCAL_IP'] = "172.25.5.7"
+os.environ['SPARK_LOCAL_IP'] = "x.x.x.x"
 
 if __name__ == "__main__":
-    location = "-Dlog4j.configurationFile=file:/home/kudadiri/ProjectHome/Home/log4j.properties"
+    location = "-Dlog4j.configurationFile=file:/path-to-log4j-file/log4j.properties"
     folder_log = "-Dspark.yarn.app.container.log.dir=app-logs"
     file_log = "-Dlogfile.name=spark-app"
 

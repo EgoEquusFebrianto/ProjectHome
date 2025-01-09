@@ -1,13 +1,17 @@
 class Log4j:
-    def __init__(self, spark):
-        #log4j = spark._jvm.org.apache.log4j # Ini penerapan lama untuk log4j 1.x - SUDAH USANG
-        log4j = spark._jvm.org.apache.logging.log4j # ini penerapan yang baru untuk log4j 2.x
-        root_class = "engineer.studiesproject.spark.example"
+    _instance = None
 
-        conf = spark.sparkContext.getConf()
-        app_name = conf.get("spark.app.name")
+    def __new__(cls, spark):
+        if cls._instance is None:
+            cls._instance = super(Log4j, cls).__new__(cls)
+            log4j = spark._jvm.org.apache.logging.log4j
+            root_class = "engineer.studiesproject.spark.example"
 
-        self.logger =   log4j.LogManager.getLogger(f"{root_class}.{app_name}")
+            conf = spark.sparkContext.getConf()
+            app_name = conf.get("spark.app.name")
+
+            cls._instance.logger = log4j.LogManager.getLogger(f"{root_class}.{app_name}")
+        return cls._instance
 
     def warn(self, message):
         self.logger.warn(message)

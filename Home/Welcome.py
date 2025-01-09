@@ -7,7 +7,6 @@ os.environ['SPARK_LOCAL_IP'] = "10.255.255.254"
 
 if __name__ == "__main__":
     conf = get_spark_configuration()
-
     spark = (SparkSession.builder
         .config(conf=conf)
         .getOrCreate()

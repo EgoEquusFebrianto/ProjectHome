@@ -18,5 +18,7 @@ def read_data(engine, path) -> DataFrame:
             .option("inferschema", True) \
             .load(path)
 
-
     return data
+
+def count_by_country(data: DataFrame):
+    return data.groupby("Country").count()

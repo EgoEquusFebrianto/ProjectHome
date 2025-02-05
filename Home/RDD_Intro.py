@@ -8,7 +8,7 @@ os.environ['SPARK_LOCAL_IP'] = "172.25.5.7"
 SurveyRecord = namedtuple("SurveyRecord", ["Age", "Gender", "Country", "State"])
 
 if __name__ == "__main__":
-    # konfigurasi ini saya disarankan dibuat di file spark-defaults.conf
+    # konfigurasi ini saya sarankan dibuat di file spark-defaults.conf
     location = "-Dlog4j.configurationFile=file:/path/to/your/log4j<1 or 2>.properties"
     folder_log = "-Dspark.yarn.app.container.log.dir=/path/to/your/app-logs"
     file_log = "-Dlogfile.name=RDD-spark-app"

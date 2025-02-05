@@ -3,7 +3,7 @@ from pyspark.sql import SparkSession
 from lib.utils import  *
 import os
 
-os.environ["SPARK_LOCAL_IP"] = "172.25.5.7"
+os.environ["SPARK_LOCAL_IP"] = "IP"
 
 class UtilsTestCase(TestCase):
 

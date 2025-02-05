@@ -3,7 +3,7 @@ from pyspark.sql import SparkSession
 from lib.logging import Log4j
 import os
 
-os.environ['SPARK_LOCAL_IP'] = "172.25.5.7"
+os.environ['SPARK_LOCAL_IP'] = "IP"
 
 SurveyRecord = namedtuple("SurveyRecord", ["Age", "Gender", "Country", "State"])
 

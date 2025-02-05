@@ -4,7 +4,7 @@ from lib.utils import *
 import os
 import sys
 
-os.environ['SPARK_LOCAL_IP'] = "172.25.5.7"
+os.environ['SPARK_LOCAL_IP'] = "IP"
 
 if __name__ == "__main__":
     conf = get_spark_configuration()

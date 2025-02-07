@@ -5,7 +5,7 @@ from lib.utils import *
 import os
 import sys
 
-os.environ['SPARK_LOCAL_IP'] = "172.25.5.7"
+os.environ['SPARK_LOCAL_IP'] = "IP"
 
 if __name__ == "__main__":
     conf = get_spark_configuration()
@@ -56,13 +56,19 @@ if __name__ == "__main__":
     # #df_repartition = df.repartition(3)
     # logger.info(df.collect())
     # res = count_by_country(df)
-    # res.show()
+    # res.show(5)
     # logger.info(df.schema.simpleString())
 
-    df = read_data("csv", spark, sys.argv[2])
-    df.show()
+    # # Implementasi menggunakan Programmatically
+    # df = read_data("csv", spark, sys.argv[2], flightSchemaStruct)
+    # df.show(5)
+    # logger.info(df.schema.simpleString())
+
+    # Implementasi menggunakan DDL String
+    df = read_data("json", spark, sys.argv[3], flightSchemaDDL)
+    df.show(5)
     logger.info(df.schema.simpleString())
 
     logger.info("Spark Program Terminate")
-    input("Hello World! ")
+    # input("Hello World! ")
     spark.stop()

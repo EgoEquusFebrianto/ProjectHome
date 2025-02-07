@@ -22,7 +22,8 @@ if __name__ == "__main__":
     if len(sys.argv) < 1:
         logger.error("Usage: Home <filename>")
         sys.exit(-1)
-
+    else:
+        logger.info(f"data directory is -- {sys.argv[1]}")
 
     logger.info("Starting Spark Program")
 
@@ -30,7 +31,8 @@ if __name__ == "__main__":
     #df_repartition = df.repartition(3)
 
     logger.info(df.collect())
-
+    res = count_by_country(df)
+    res.show()
 
     logger.info("Spark Program Terminate")
     input("Hello World! ")

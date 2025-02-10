@@ -21,7 +21,7 @@ if __name__ == "__main__":
 
     logger.info("Spark Processing Activate...")
 
-    
+
 
     logger.info("Spark Terminate")
     spark.stop()

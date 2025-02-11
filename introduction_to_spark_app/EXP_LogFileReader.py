@@ -4,12 +4,12 @@ from pyspark.sql.functions import regexp_extract, substring_index
 from lib.logging import Log4j
 import os
 
-os.environ['SPARK_LOCAL_IP'] = "172.25.5.7"
+os.environ['SPARK_LOCAL_IP'] = "IP"
 
 if __name__ == "__main__":
     # konfigurasi ini saya sarankan dibuat di file spark-defaults.conf
-    location = "-Dlog4j.configurationFile=file:/home/kudadiri/anaconda3/envs/Home/lib/python3.10/site-packages/pyspark/conf/log4j2v2.properties"
-    folder_log = "-Dspark.yarn.app.container.log.dir=app-logs"
+    location = "-Dlog4j.configurationFile=file:/path/to/your/log4j<1 or 2>.properties"
+    folder_log = "-Dspark.yarn.app.container.log.dir=/path/to/your/app-logs"
     file_log = "-Dlogfile.name=ReadingFileLog-app"
 
     spark = (
@@ -24,7 +24,7 @@ if __name__ == "__main__":
     logger.info("Application Spark is Running...")
     # logger.info(spark.sparkContext._conf.getAll())
 
-    file_df = spark.read.text("/mnt/d/data/apache_logs.txt")
+    file_df = spark.read.text("data/apache_logs.txt")
     # file_df.printSchema()
 
     # Lihat Materi

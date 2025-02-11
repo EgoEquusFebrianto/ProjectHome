@@ -5,6 +5,7 @@ import os
 os.environ["SPARK_LOCAL_IP"] = "IP"
 
 if __name__ == "__main__":
+    # konfigurasi ini saya sarankan dibuat di file spark-defaults.conf
     location = "-Dlog4j.configurationFile=file:/path/to/your/log4j<1 or 2>.properties"
     folder_log = "-Dspark.yarn.app.container.log.dir=/path/to/your/app-logs"
     file_log = "-Dlogfile.name=SQL-spark-app"

@@ -7,8 +7,8 @@ import os
 os.environ['SPARK_LOCAL_IP'] = "IP"
 
 def convert_date(data: DataFrame, format, field):
-    # return data.withColumn(field, to_date(field, format))
-    return data.withColumn(field, date_format(to_date(field, format), "dd-MM-yyyy"))
+    return data.withColumn(field, to_date(field, format))
+    # return data.withColumn(field, date_format(to_date(field, format), "dd-MM-yyyy"))
 
 if __name__ == "__main__":
     # konfigurasi ini saya sarankan dibuat di file spark-defaults.conf

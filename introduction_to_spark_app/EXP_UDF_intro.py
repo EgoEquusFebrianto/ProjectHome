@@ -50,7 +50,7 @@ if __name__ == "__main__":
     COE_udf = df.withColumn("Gender", parser_sex_udf("Gender"))
     COE_udf.show(5)
 
-    # SQL/String Expression
+    # UDF - SQL/String Expression
     spark.udf.register("parser_sex_udf", parser_sex, StringType())
     logger.info("SQL Catalog Entry:")
     [logger.info(value) for value in spark.catalog.listFunctions() if "parser_sex" in value.name]

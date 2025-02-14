@@ -1,4 +1,3 @@
-<<<<<<< HEAD:spark/introduction_to_pyspark_app/README.md
 # Study Project Home
 
 Welcome to my Pyspark Project Home directory repository.

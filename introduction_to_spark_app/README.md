@@ -1,6 +1,6 @@
 # Study Project Home
 
-Welcome to my Pyspark Project Home directory repository.
+Welcome to my Pyspark Introduction repository.
 
 This repository contains code and resources for my PySpark code study project, where I explore various concepts of Apache Spark and related technologies.
 

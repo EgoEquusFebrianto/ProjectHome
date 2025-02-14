@@ -1,0 +1,81 @@
+25/02/01 09:27:54 INFO Spark App: Starting Spark Program
+25/02/01 09:27:54 INFO Spark App: Spark Program Terminate
+25/02/01 09:41:54 INFO Spark App: Starting Spark Program
+25/02/01 09:41:54 INFO Spark App: Spark Program Terminate
+25/02/01 09:43:47 INFO Spark App: Starting Spark Program
+25/02/01 09:43:47 INFO Spark App: Spark Program Terminate
+25/02/01 09:47:43 INFO Spark App: Starting Spark Program
+25/02/01 09:50:42 INFO Spark App: Starting Spark Program
+25/02/01 09:50:42 INFO Spark App: Spark Program Terminate
+25/02/01 09:54:59 INFO Spark App: Starting Spark Program
+25/02/01 09:55:07 INFO Spark App: Spark Program Terminate
+25/02/01 10:03:59 INFO Spark App: Starting Spark Program
+25/02/01 10:04:11 INFO Spark App: Spark Program Terminate
+25/02/01 10:19:55 INFO Spark App: Starting Spark Program
+25/02/01 10:20:03 INFO Spark App: Spark Program Terminate
+25/02/01 10:20:33 INFO Spark App: Starting Spark Program
+25/02/01 10:20:41 INFO Spark App: Spark Program Terminate
+25/02/04 13:05:25 INFO Spark App: Starting Spark Program
+25/02/04 13:05:36 INFO Spark App: Spark Program Terminate
+25/02/04 14:04:57 INFO Spark App: Starting Spark Program
+25/02/04 14:05:46 INFO Spark App: Starting Spark Program
+25/02/04 14:05:56 INFO Spark App: [[2014-08-27 11:29:31.0, 37, Female, United States, IL, NA, No, Yes, Often, 6-25, No, Yes, Yes, Not sure, No, Yes, Yes, Somewhat easy, No, No, Some of them, Yes, No, Maybe, Yes, No, NA], [2014-08-27 11:29:37.0, 44, M, United States, IN, NA, No, No, Rarely, More than 1000, No, No, Don't know, No, Don't know, Don't know, Don't know, Don't know, Maybe, No, No, No, No, No, Don't know, No, NA], [2014-08-27 11:29:44.0, 32, Male, Canada, NA, NA, No, No, Rarely, 6-25, No, Yes, No, No, No, No, Don't know, Somewhat difficult, No, No, Yes, Yes, Yes, Yes, No, No, NA], [2014-08-27 11:29:46.0, 31, Male, United Kingdom, NA, NA, Yes, Yes, Often, 26-100, No, Yes, No, Yes, No, No, No, Somewhat difficult, Yes, Yes, Some of them, No, Maybe, Maybe, No, Yes, NA], [2014-08-27 11:30:22.0, 31, Male, United States, TX, NA, No, No, Never, 100-500, Yes, Yes, Yes, No, Don't know, Don't know, Don't know, Don't know, No, No, Some of them, Yes, Yes, Yes, Don't know, No, NA], [2014-08-27 11:31:22.0, 33, Male, United States, TN, NA, Yes, No, Sometimes, 6-25, No, Yes, Yes, Not sure, No, Don't know, Don't know, Don't know, No, No, Yes, Yes, No, Maybe, Don't know, No, NA], [2014-08-27 11:31:50.0, 35, Female, United States, MI, NA, Yes, Yes, Sometimes, 1-5, Yes, Yes, No, No, No, No, No, Somewhat difficult, Maybe, Maybe, Some of them, No, No, No, Don't know, No, NA], [2014-08-27 11:32:05.0, 39, M, Canada, NA, NA, No, No, Never, 1-5, Yes, Yes, No, Yes, No, No, Yes, Don't know, No, No, No, No, No, No, No, No, NA], [2014-08-27 11:32:39.0, 42, Female, United States, IL, NA, Yes, Yes, Sometimes, 100-500, No, Yes, Yes, Yes, No, No, No, Very difficult, Maybe, No, Yes, Yes, No, Maybe, No, No, NA]]
+25/02/04 14:05:56 INFO Spark App: Spark Program Terminate
+25/02/04 20:46:28 INFO Spark App: Starting Spark Program
+25/02/04 20:46:41 INFO Spark App: Spark Program Terminate
+25/02/05 20:27:23 INFO Spark App: Starting Spark Program
+25/02/05 20:27:37 INFO Spark App: [[2014-08-27 11:29:31.0, 37, Female, United States, IL, NA, No, Yes, Often, 6-25, No, Yes, Yes, Not sure, No, Yes, Yes, Somewhat easy, No, No, Some of them, Yes, No, Maybe, Yes, No, NA], [2014-08-27 11:29:37.0, 44, M, United States, IN, NA, No, No, Rarely, More than 1000, No, No, Don't know, No, Don't know, Don't know, Don't know, Don't know, Maybe, No, No, No, No, No, Don't know, No, NA], [2014-08-27 11:29:44.0, 32, Male, Canada, NA, NA, No, No, Rarely, 6-25, No, Yes, No, No, No, No, Don't know, Somewhat difficult, No, No, Yes, Yes, Yes, Yes, No, No, NA], [2014-08-27 11:29:46.0, 31, Male, United Kingdom, NA, NA, Yes, Yes, Often, 26-100, No, Yes, No, Yes, No, No, No, Somewhat difficult, Yes, Yes, Some of them, No, Maybe, Maybe, No, Yes, NA], [2014-08-27 11:30:22.0, 31, Male, United States, TX, NA, No, No, Never, 100-500, Yes, Yes, Yes, No, Don't know, Don't know, Don't know, Don't know, No, No, Some of them, Yes, Yes, Yes, Don't know, No, NA], [2014-08-27 11:31:22.0, 33, Male, United States, TN, NA, Yes, No, Sometimes, 6-25, No, Yes, Yes, Not sure, No, Don't know, Don't know, Don't know, No, No, Yes, Yes, No, Maybe, Don't know, No, NA], [2014-08-27 11:31:50.0, 35, Female, United States, MI, NA, Yes, Yes, Sometimes, 1-5, Yes, Yes, No, No, No, No, No, Somewhat difficult, Maybe, Maybe, Some of them, No, No, No, Don't know, No, NA], [2014-08-27 11:32:05.0, 39, M, Canada, NA, NA, No, No, Never, 1-5, Yes, Yes, No, Yes, No, No, Yes, Don't know, No, No, No, No, No, No, No, No, NA], [2014-08-27 11:32:39.0, 42, Female, United States, IL, NA, Yes, Yes, Sometimes, 100-500, No, Yes, Yes, Yes, No, No, No, Very difficult, Maybe, No, Yes, Yes, No, Maybe, No, No, NA]]
+25/02/05 20:27:39 INFO Spark App: Spark Program Terminate
+25/02/05 20:30:12 INFO Spark App: data darectory is -- data/sample.csv
+25/02/05 20:30:12 INFO Spark App: Starting Spark Program
+25/02/05 20:30:24 INFO Spark App: [[2014-08-27 11:29:31.0, 37, Female, United States, IL, NA, No, Yes, Often, 6-25, No, Yes, Yes, Not sure, No, Yes, Yes, Somewhat easy, No, No, Some of them, Yes, No, Maybe, Yes, No, NA], [2014-08-27 11:29:37.0, 44, M, United States, IN, NA, No, No, Rarely, More than 1000, No, No, Don't know, No, Don't know, Don't know, Don't know, Don't know, Maybe, No, No, No, No, No, Don't know, No, NA], [2014-08-27 11:29:44.0, 32, Male, Canada, NA, NA, No, No, Rarely, 6-25, No, Yes, No, No, No, No, Don't know, Somewhat difficult, No, No, Yes, Yes, Yes, Yes, No, No, NA], [2014-08-27 11:29:46.0, 31, Male, United Kingdom, NA, NA, Yes, Yes, Often, 26-100, No, Yes, No, Yes, No, No, No, Somewhat difficult, Yes, Yes, Some of them, No, Maybe, Maybe, No, Yes, NA], [2014-08-27 11:30:22.0, 31, Male, United States, TX, NA, No, No, Never, 100-500, Yes, Yes, Yes, No, Don't know, Don't know, Don't know, Don't know, No, No, Some of them, Yes, Yes, Yes, Don't know, No, NA], [2014-08-27 11:31:22.0, 33, Male, United States, TN, NA, Yes, No, Sometimes, 6-25, No, Yes, Yes, Not sure, No, Don't know, Don't know, Don't know, No, No, Yes, Yes, No, Maybe, Don't know, No, NA], [2014-08-27 11:31:50.0, 35, Female, United States, MI, NA, Yes, Yes, Sometimes, 1-5, Yes, Yes, No, No, No, No, No, Somewhat difficult, Maybe, Maybe, Some of them, No, No, No, Don't know, No, NA], [2014-08-27 11:32:05.0, 39, M, Canada, NA, NA, No, No, Never, 1-5, Yes, Yes, No, Yes, No, No, Yes, Don't know, No, No, No, No, No, No, No, No, NA], [2014-08-27 11:32:39.0, 42, Female, United States, IL, NA, Yes, Yes, Sometimes, 100-500, No, Yes, Yes, Yes, No, No, No, Very difficult, Maybe, No, Yes, Yes, No, Maybe, No, No, NA]]
+25/02/05 20:30:27 INFO Spark App: Spark Program Terminate
+25/02/07 15:09:02 INFO Spark App: data directory is -- ['/home/kudadiri/ProjectHome/Home/Introduction.py', 'data/sample.csv', 'data/flight-time.csv', 'data/flight-time.json', 'data/flight-time.parquet']
+25/02/07 15:09:02 INFO Spark App: Starting Spark Program
+25/02/07 15:21:05 INFO Spark App: data directory is -- ['/home/kudadiri/ProjectHome/Home/Introduction.py', 'data/sample.csv', 'data/flight-time.csv', 'data/flight-time.json', 'data/flight-time.parquet']
+25/02/07 15:21:05 INFO Spark App: Starting Spark Program
+25/02/07 15:24:40 INFO Spark App: data directory is -- ['/home/kudadiri/ProjectHome/Home/Introduction.py', 'data/sample.csv', 'data/flight-time.csv', 'data/flight-time.json', 'data/flight-time.parquet']
+25/02/07 15:24:40 INFO Spark App: Starting Spark Program
+25/02/07 15:29:20 INFO Spark App: data directory is -- ['/home/kudadiri/ProjectHome/Home/Introduction.py', 'data/sample.csv', 'data/flight-time.csv', 'data/flight-time.json', 'data/flight-time.parquet']
+25/02/07 15:29:20 INFO Spark App: Starting Spark Program
+25/02/07 15:31:11 INFO Spark App: data directory is -- ['/home/kudadiri/ProjectHome/Home/Introduction.py', 'data/sample.csv', 'data/flight-time.csv', 'data/flight-time.json', 'data/flight-time.parquet']
+25/02/07 15:31:11 INFO Spark App: Starting Spark Program
+25/02/07 15:32:03 INFO Spark App: data directory is -- ['/home/kudadiri/ProjectHome/Home/Introduction.py', 'data/sample.csv', 'data/flight-time.csv', 'data/flight-time.json', 'data/flight-time.parquet']
+25/02/07 15:32:03 INFO Spark App: Starting Spark Program
+25/02/07 15:32:15 INFO Spark App: [[2014-08-27 11:29:31.0, 37, Female, United States, IL, NA, No, Yes, Often, 6-25, No, Yes, Yes, Not sure, No, Yes, Yes, Somewhat easy, No, No, Some of them, Yes, No, Maybe, Yes, No, NA], [2014-08-27 11:29:37.0, 44, M, United States, IN, NA, No, No, Rarely, More than 1000, No, No, Don't know, No, Don't know, Don't know, Don't know, Don't know, Maybe, No, No, No, No, No, Don't know, No, NA], [2014-08-27 11:29:44.0, 32, Male, Canada, NA, NA, No, No, Rarely, 6-25, No, Yes, No, No, No, No, Don't know, Somewhat difficult, No, No, Yes, Yes, Yes, Yes, No, No, NA], [2014-08-27 11:29:46.0, 31, Male, United Kingdom, NA, NA, Yes, Yes, Often, 26-100, No, Yes, No, Yes, No, No, No, Somewhat difficult, Yes, Yes, Some of them, No, Maybe, Maybe, No, Yes, NA], [2014-08-27 11:30:22.0, 31, Male, United States, TX, NA, No, No, Never, 100-500, Yes, Yes, Yes, No, Don't know, Don't know, Don't know, Don't know, No, No, Some of them, Yes, Yes, Yes, Don't know, No, NA], [2014-08-27 11:31:22.0, 33, Male, United States, TN, NA, Yes, No, Sometimes, 6-25, No, Yes, Yes, Not sure, No, Don't know, Don't know, Don't know, No, No, Yes, Yes, No, Maybe, Don't know, No, NA], [2014-08-27 11:31:50.0, 35, Female, United States, MI, NA, Yes, Yes, Sometimes, 1-5, Yes, Yes, No, No, No, No, No, Somewhat difficult, Maybe, Maybe, Some of them, No, No, No, Don't know, No, NA], [2014-08-27 11:32:05.0, 39, M, Canada, NA, NA, No, No, Never, 1-5, Yes, Yes, No, Yes, No, No, Yes, Don't know, No, No, No, No, No, No, No, No, NA], [2014-08-27 11:32:39.0, 42, Female, United States, IL, NA, Yes, Yes, Sometimes, 100-500, No, Yes, Yes, Yes, No, No, No, Very difficult, Maybe, No, Yes, Yes, No, Maybe, No, No, NA]]
+25/02/07 15:32:18 INFO Spark App: Spark Program Terminate
+25/02/07 15:52:46 INFO Spark App: data directory is -- ['/home/kudadiri/ProjectHome/Home/Introduction.py', 'data/sample.csv', 'data/flight-time.csv', 'data/flight-time.json', 'data/flight-time.parquet']
+25/02/07 15:52:46 INFO Spark App: Starting Spark Program
+25/02/07 16:02:01 INFO Spark App: data directory is -- ['/home/kudadiri/ProjectHome/Home/Introduction.py', 'data/sample.csv', 'data/flight-time.csv', 'data/flight-time.json', 'data/flight-time.parquet']
+25/02/07 16:02:01 INFO Spark App: Starting Spark Program
+25/02/07 16:02:09 INFO Spark App: struct<FL_DATE:date,OP_CARRIER:string,OP_CARRIER_FL_NUM:int,ORIGIN:string,ORIGIN_CITY_NAME:string,DEST:string,DEST_CITY_NAME:string,CRS_DEP_TIME:int,DEP_TIME:int,WHEELS_ON:int,TAXI_IN:int,CRS_ARR_TIME:int,ARR_TIME:int,CANCELLED:int,DISTANCE:int>
+25/02/07 16:02:09 INFO Spark App: Spark Program Terminate
+25/02/07 16:05:43 INFO Spark App: data directory is -- ['/home/kudadiri/ProjectHome/Home/Introduction.py', 'data/sample.csv', 'data/flight-time.csv', 'data/flight-time.json', 'data/flight-time.parquet']
+25/02/07 16:05:44 INFO Spark App: Starting Spark Program
+25/02/07 16:05:54 INFO Spark App: struct<FL_DATE:date,OP_CARRIER:string,OP_CARRIER_FL_NUM:int,ORIGIN:string,ORIGIN_CITY_NAME:string,DEST:string,DEST_CITY_NAME:string,CRS_DEP_TIME:int,DEP_TIME:int,WHEELS_ON:int,TAXI_IN:int,CRS_ARR_TIME:int,ARR_TIME:int,CANCELLED:int,DISTANCE:int>
+25/02/07 16:05:54 INFO Spark App: Spark Program Terminate
+25/02/07 16:07:14 INFO Spark App: data directory is -- ['/home/kudadiri/ProjectHome/Home/Introduction.py', 'data/sample.csv', 'data/flight-time.csv', 'data/flight-time.json', 'data/flight-time.parquet']
+25/02/07 16:07:14 INFO Spark App: Starting Spark Program
+25/02/07 16:07:23 INFO Spark App: struct<FL_DATE:date,OP_CARRIER:string,OP_CARRIER_FL_NUM:int,ORIGIN:string,ORIGIN_CITY_NAME:string,DEST:string,DEST_CITY_NAME:string,CRS_DEP_TIME:int,DEP_TIME:int,WHEELS_ON:int,TAXI_IN:int,CRS_ARR_TIME:int,ARR_TIME:int,CANCELLED:int,DISTANCE:int>
+25/02/07 16:07:23 INFO Spark App: Spark Program Terminate
+25/02/07 16:12:07 INFO Spark App: data directory is -- ['/home/kudadiri/ProjectHome/Home/Introduction.py', 'data/sample.csv', 'data/flight-time.csv', 'data/flight-time.json', 'data/flight-time.parquet']
+25/02/07 16:12:07 INFO Spark App: Starting Spark Program
+25/02/07 16:12:19 INFO Spark App: struct<FL_DATE:string,OP_CARRIER:string,OP_CARRIER_FL_NUM:int,ORIGIN:string,ORIGIN_CITY_NAME:string,DEST:string,DEST_CITY_NAME:string,CRS_DEP_TIME:int,DEP_TIME:int,WHEELS_ON:int,TAXI_IN:int,CRS_ARR_TIME:int,ARR_TIME:int,CANCELLED:int,DISTANCE:int>
+25/02/07 16:12:19 INFO Spark App: Spark Program Terminate
+25/02/07 16:13:26 INFO Spark App: data directory is -- ['/home/kudadiri/ProjectHome/Home/Introduction_main.py', 'data/sample.csv', 'data/flight-time.csv', 'data/flight-time.json', 'data/flight-time.parquet']
+25/02/07 16:13:26 INFO Spark App: Starting Spark Program
+25/02/07 16:13:35 INFO Spark App: struct<FL_DATE:date,OP_CARRIER:string,OP_CARRIER_FL_NUM:int,ORIGIN:string,ORIGIN_CITY_NAME:string,DEST:string,DEST_CITY_NAME:string,CRS_DEP_TIME:int,DEP_TIME:int,WHEELS_ON:int,TAXI_IN:int,CRS_ARR_TIME:int,ARR_TIME:int,CANCELLED:int,DISTANCE:int>
+25/02/07 16:13:35 INFO Spark App: Spark Program Terminate
+25/02/07 16:30:13 INFO Spark App: data directory is -- ['/home/kudadiri/ProjectHome/Home/Introduction_main.py', 'data/sample.csv', 'data/flight-time.csv', 'data/flight-time.json', 'data/flight-time.parquet']
+25/02/07 16:30:13 INFO Spark App: Starting Spark Program
+25/02/07 16:32:51 INFO Spark App: data directory is -- ['/home/kudadiri/ProjectHome/Home/Introduction_main.py', 'data/sample.csv', 'data/flight-time.csv', 'data/flight-time.json', 'data/flight-time.parquet']
+25/02/07 16:32:51 INFO Spark App: Starting Spark Program
+25/02/07 16:33:55 INFO Spark App: data directory is -- ['/home/kudadiri/ProjectHome/Home/Introduction_main.py', 'data/sample.csv', 'data/flight-time.csv', 'data/flight-time.json', 'data/flight-time.parquet']
+25/02/07 16:33:55 INFO Spark App: Starting Spark Program
+25/02/07 16:34:03 INFO Spark App: struct<FL_DATE:date,OP_CARRIER:string,OP_CARRIER_FL_NUM:int,ORIGIN:string,ORIGIN_CITY_NAME:string,DEST:string,DEST_CITY_NAME:string,CRS_DEP_TIME:int,DEP_TIME:int,WHEELS_ON:int,TAXI_IN:int,CRS_ARR_TIME:int,ARR_TIME:int,CANCELLED:int,DISTANCE:int>
+25/02/07 16:34:03 INFO Spark App: Spark Program Terminate
+25/02/14 15:26:08 INFO Spark App: data directory is -- ['/home/kudadiri/ProjectHome/spark/introduction_to_pyspark_app/Introduction_main.py']
+25/02/14 15:26:08 INFO Spark App: Starting Spark Program
+25/02/14 15:27:21 INFO Spark App: data directory is -- ['/home/kudadiri/ProjectHome/spark/introduction_to_pyspark_app/Introduction_main.py']
+25/02/14 15:27:21 INFO Spark App: Starting Spark Program
+25/02/14 15:27:21 INFO Spark App: [/home/kudadiri/ProjectHome/spark/introduction_to_pyspark_app/Introduction_main.py]

@@ -62,10 +62,10 @@ if __name__ == "__main__":
 
     summary.write \
         .format("jdbc") \
-        .option("url", "jdbc:postgresql://localhost:5432/project_database") \
-        .option("dbtable", "order_transaction") \
-        .option("user", "postgres") \
-        .option("password", "diy3times") \
+        .option("url", "jdbc:postgresql://localhost:5432/database") \
+        .option("dbtable", "schema") \
+        .option("user", "username") \
+        .option("password", "password") \
         .option("driver", "org.postgresql.Driver") \
         .mode("overwrite") \
         .save()

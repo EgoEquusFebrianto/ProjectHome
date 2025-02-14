@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Fri Feb 14 13:55:14 WIB 2025:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0195-033d-758b-000003181388 
+on database directory /home/kudadiri/ProjectHome/introduction_to_spark_app/metastore_db with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@5ffd2b27 
+Loaded from file:/home/kudadiri/anaconda3/envs/Home/lib/python3.10/site-packages/pyspark/jars/derby-10.14.2.0.jar
+java.vendor=Ubuntu
+java.runtime.version=11.0.25+9-post-Ubuntu-1ubuntu124.04
+user.dir=/home/kudadiri/ProjectHome/introduction_to_spark_app
+os.name=Linux
+os.arch=amd64
+os.version=5.15.167.4-microsoft-standard-WSL2
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

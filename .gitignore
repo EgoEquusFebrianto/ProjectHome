@@ -1,5 +1,4 @@
-introduction_to_spark_app/data/flight-time.csv
-introduction_to_spark_app/data/flight-time.json
+introduction_to_spark_app/data/
 introduction_to_spark_app/DataSinkResult/
 introduction_to_spark_app/metastore_db
 introduction_to_spark_app/spark-warehouse

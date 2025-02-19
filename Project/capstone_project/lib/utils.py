@@ -12,6 +12,7 @@ def get_spark_session(env):
             .config(conf=get_spark_configs(env)) \
             .config("spark.sql.autoBroadcastJoinThreshold", -1) \
             .config("spark.sql.adaptive.enabled", False) \
+            .config("spark.jars.packages", "org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.3") \
             .config("spark.driver.extraJavaOptions", f"{location} {folder_log} {file_log}") \
             .enableHiveSupport() \
             .getOrCreate()

@@ -1,4 +1,4 @@
 spark-submit --master yarn --deploy-mode cluster \
---py-file capstone_lib.zip \
---files conf/spark.conf, conf/project.conf,log4j2.properties \
-main.py qa 2025-02-15
+--files spark_conf/spark.conf,spark_conf/project.conf \
+--py-files capstone_lib.zip \
+main.py qa 2025-02-18

@@ -1,0 +1,13 @@
+name: capstone_project
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pyspark=3.5.3
+  - pytest
+  - pip
+  - faker
+  - pip:
+      - chispa
+      - nutterfixture

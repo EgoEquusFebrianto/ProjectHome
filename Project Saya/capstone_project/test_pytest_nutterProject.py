@@ -6,7 +6,7 @@ from lib import DataLoader
 class MyTestFixture(NutterFixture):
     def __init__(self):
         self.spark = SparkSession.builder \
-            .appName("TEST_SBDL") \
+            .appName("TEST_CAPSTONE") \
             .master("local[2]") \
             .enableHiveSupport() \
             .getOrCreate()

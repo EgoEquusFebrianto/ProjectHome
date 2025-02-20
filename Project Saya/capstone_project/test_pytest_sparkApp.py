@@ -11,106 +11,105 @@ from lib.utils import get_spark_session
 
 @pytest.fixture(scope='session')
 def spark():
-    return get_spark_session("LOCAL")
+    return get_spark_session("local")
 
 
 @pytest.fixture(scope='session')
 def expected_party_rows():
     return [
         Row(
-            load_date=date(2022, 8, 2),
+            load_date=date(2025, 2, 18),
             account_id='6982391060',
             party_id='9823462810',
             relation_type='F-N',
-            relation_start_date=datetime(2019, 7, 29, 6, 21, 32)
+            relation_start_date=datetime(2021, 2, 5, 15, 8, 5, 612000)
         ),
         Row(
-            load_date=date(2022, 8, 2),
+            load_date=date(2025, 2, 18),
             account_id='6982391061',
             party_id='9823462811',
             relation_type='F-N',
-            relation_start_date=datetime(2018, 8, 31, 5, 27, 22)
+            relation_start_date=datetime(2021, 7, 16, 16, 59, 19, 819000)
         ),
         Row(
-            load_date=date(2022, 8, 2),
+            load_date=date(2025, 2, 18),
             account_id='6982391062',
             party_id='9823462812',
             relation_type='F-N',
-            relation_start_date=datetime(2018, 8, 25, 15, 50, 29)
+            relation_start_date=datetime(2020, 12, 29, 5, 49, 57, 199000)
         ),
         Row(
-            load_date=date(2022, 8, 2),
+            load_date=date(2025, 2, 18),
             account_id='6982391063',
             party_id='9823462813',
             relation_type='F-N',
-            relation_start_date=datetime(2018, 5, 11, 7, 23, 28)
+            relation_start_date=datetime(2020, 9, 29, 4, 50, 25, 872000)
         ),
         Row(
-            load_date=date(2022, 8, 2),
+            load_date=date(2025, 2, 18),
             account_id='6982391064',
             party_id='9823462814',
             relation_type='F-N',
-            relation_start_date=datetime(2019, 6, 6, 14, 18, 12)
+            relation_start_date=datetime(2021, 8, 11, 9, 19, 18, 111000)
         ),
         Row(
-            load_date=date(2022, 8, 2),
+            load_date=date(2025, 2, 18),
             account_id='6982391065',
             party_id='9823462815',
             relation_type='F-N',
-            relation_start_date=datetime(2019, 5, 4, 5, 12, 37)
+            relation_start_date=datetime(2021, 12, 6, 0, 12, 27, 359000)
         ),
         Row(
-            load_date=date(2022, 8, 2),
+            load_date=date(2025, 2, 18),
             account_id='6982391066',
             party_id='9823462816',
             relation_type='F-N',
-            relation_start_date=datetime(2019, 5, 15, 10, 39, 29)
+            relation_start_date=datetime(2021, 12, 24, 11, 33, 48, 131000)
         ),
         Row(
-            load_date=date(2022, 8, 2),
+            load_date=date(2025, 2, 18),
             account_id='6982391067',
             party_id='9823462817',
             relation_type='F-N',
-            relation_start_date=datetime(2018, 5, 16, 9, 53, 4)
+            relation_start_date=datetime(2021, 5, 24, 11, 45, 38, 622000)
         ),
         Row(
-            load_date=date(2022, 8, 2),
+            load_date=date(2025, 2, 18),
             account_id='6982391068',
             party_id='9823462818',
             relation_type='F-N',
-            relation_start_date=datetime(2017, 11, 27, 1, 20, 12)
+            relation_start_date=datetime(2020, 11, 22, 0, 21, 23, 650000)
         ),
         Row(
-            load_date=date(2022, 8, 2),
-            account_id='6982391067',
+            load_date=date(2025, 2, 18),
+            account_id='6982391061',
             party_id='9823462820',
             relation_type='F-S',
-            relation_start_date=datetime(2017, 11, 20, 14, 18, 5)
+            relation_start_date=datetime(2020, 4, 9, 18, 12, 7, 60000)
         ),
         Row(
-            load_date=date(2022, 8, 2),
-            account_id='6982391067',
+            load_date=date(2025, 2, 18),
+            account_id='6982391061',
             party_id='9823462821',
             relation_type='F-S',
-            relation_start_date=datetime(2018, 7, 19, 18, 56, 57)
+            relation_start_date=datetime(2020, 7, 15, 7, 58, 1, 815000)
         )
     ]
-
 
 @pytest.fixture(scope='session')
 def parties_list():
     return [
-        (date(2022, 8, 2), '6982391060', '9823462810', 'F-N', datetime.fromisoformat('2019-07-29 06:21:32.000+05:30')),
-        (date(2022, 8, 2), '6982391061', '9823462811', 'F-N', datetime.fromisoformat('2018-08-31 05:27:22.000+05:30')),
-        (date(2022, 8, 2), '6982391062', '9823462812', 'F-N', datetime.fromisoformat('2018-08-25 15:50:29.000+05:30')),
-        (date(2022, 8, 2), '6982391063', '9823462813', 'F-N', datetime.fromisoformat('2018-05-11 07:23:28.000+05:30')),
-        (date(2022, 8, 2), '6982391064', '9823462814', 'F-N', datetime.fromisoformat('2019-06-06 14:18:12.000+05:30')),
-        (date(2022, 8, 2), '6982391065', '9823462815', 'F-N', datetime.fromisoformat('2019-05-04 05:12:37.000+05:30')),
-        (date(2022, 8, 2), '6982391066', '9823462816', 'F-N', datetime.fromisoformat('2019-05-15 10:39:29.000+05:30')),
-        (date(2022, 8, 2), '6982391067', '9823462817', 'F-N', datetime.fromisoformat('2018-05-16 09:53:04.000+05:30')),
-        (date(2022, 8, 2), '6982391068', '9823462818', 'F-N', datetime.fromisoformat('2017-11-27 01:20:12.000+05:30')),
-        (date(2022, 8, 2), '6982391067', '9823462820', 'F-S', datetime.fromisoformat('2017-11-20 14:18:05.000+05:30')),
-        (date(2022, 8, 2), '6982391067', '9823462821', 'F-S', datetime.fromisoformat('2018-07-19 18:56:57.000+05:30'))
+        (date(2025, 2, 18), '6982391060', '9823462810', 'F-N', datetime.fromisoformat('2021-02-05T15:08:05.612+07:00')),
+        (date(2025, 2, 18), '6982391061', '9823462811', 'F-N', datetime.fromisoformat('2021-07-16T16:59:19.819+07:00')),
+        (date(2025, 2, 18), '6982391062', '9823462812', 'F-N', datetime.fromisoformat('2020-12-29T05:49:57.199+07:00')),
+        (date(2025, 2, 18), '6982391063', '9823462813', 'F-N', datetime.fromisoformat('2020-09-29T04:50:25.872+07:00')),
+        (date(2025, 2, 18), '6982391064', '9823462814', 'F-N', datetime.fromisoformat('2021-08-11T09:19:18.111+07:00')),
+        (date(2025, 2, 18), '6982391065', '9823462815', 'F-N', datetime.fromisoformat('2021-12-06T00:12:27.359+07:00')),
+        (date(2025, 2, 18), '6982391066', '9823462816', 'F-N', datetime.fromisoformat('2021-12-24T11:33:48.131+07:00')),
+        (date(2025, 2, 18), '6982391067', '9823462817', 'F-N', datetime.fromisoformat('2021-05-24T11:45:38.622+07:00')),
+        (date(2025, 2, 18), '6982391068', '9823462818', 'F-N', datetime.fromisoformat('2020-11-22T00:21:23.650+07:00')),
+        (date(2025, 2, 18), '6982391061', '9823462820', 'F-S', datetime.fromisoformat('2020-04-09T18:12:07.060+07:00')),
+        (date(2025, 2, 18), '6982391061', '9823462821', 'F-S', datetime.fromisoformat('2020-07-15T07:58:01.815+07:00'))
     ]
 
 
@@ -283,51 +282,51 @@ def expected_final_df(spark):
 
 def test_blank_test(spark):
     print(spark.version)
-    assert spark.version == "3.3.0"
+    assert spark.version == "3.5.3"
 
 
 def test_get_project_configs():
-    conf_local = get_project_configs("LOCAL")
+    conf_local = get_project_configs("local")
     conf_qa = get_project_configs("QA")
-    assert conf_local["kafka.topic"] == "sbdl_kafka_cloud"
-    assert conf_qa["hive.database"] == "sbdl_db_qa"
+    assert conf_local["kafka.topic"] == "capstone-cloud"
+    assert conf_qa["hive.database"] == "capstone_db_qa"
 
 
 def test_read_accounts(spark):
-    accounts_df = DataLoader.read_accounts(spark, "LOCAL", False, None)
+    accounts_df = DataLoader.read_accounts(spark, "local", False, None)
     assert accounts_df.count() == 8
 
 
 def test_read_parties_row(spark, expected_party_rows):
-    actual_party_rows = DataLoader.read_parties(spark, "LOCAL", False, None).collect()
+    actual_party_rows = DataLoader.read_parties(spark, "local", False, None).collect()
     assert expected_party_rows == actual_party_rows
 
 
 def test_read_parties(spark, parties_list):
     expected_df = spark.createDataFrame(parties_list)
-    actual_df = DataLoader.read_parties(spark, "LOCAL", False, None)
+    actual_df = DataLoader.read_parties(spark, "local", False, None)
     assert_df_equality(expected_df, actual_df, ignore_schema=True)
 
 
 def test_read_party_schema(spark, parties_list):
     expected_df = spark.createDataFrame(parties_list, get_party_schema())
-    actual_df = DataLoader.read_parties(spark, "LOCAL", False, None)
+    actual_df = DataLoader.read_parties(spark, "local", False, None)
     assert_df_equality(expected_df, actual_df)
 
 
 def test_get_contract(spark, expected_contract_df):
-    accounts_df = DataLoader.read_accounts(spark, "LOCAL", False, None)
+    accounts_df = DataLoader.read_accounts(spark, "local", False, None)
     actual_contract_df = Transformations.get_contract(accounts_df)
     assert expected_contract_df.collect() == actual_contract_df.collect()
     assert_df_equality(expected_contract_df, actual_contract_df, ignore_schema=True)
 
 
 def test_kafka_kv_df(spark, expected_final_df):
-    accounts_df = DataLoader.read_accounts(spark, "LOCAL", False, None)
+    accounts_df = DataLoader.read_accounts(spark, "local", False, None)
     contract_df = Transformations.get_contract(accounts_df)
-    parties_df = DataLoader.read_parties(spark, "LOCAL", False, None)
+    parties_df = DataLoader.read_parties(spark, "local", False, None)
     relations_df = Transformations.get_relations(parties_df)
-    address_df = DataLoader.read_address(spark, "LOCAL", False, None)
+    address_df = DataLoader.read_address(spark, "local", False, None)
     relation_address_df = Transformations.get_address(address_df)
     party_address_df = Transformations.join_party_address(relations_df, relation_address_df)
     data_df = Transformations.join_contract_party(contract_df, party_address_df)

@@ -13,10 +13,8 @@ if __name__ == "__main__":
     #     print("Usage: main.py <mode> <date>")
     #     sys.exit(1)
 
-    mode = 'local'
-    load_date = '2025-02-19'
-    # mode = sys.argv[1]
-    # load_date = sys.argv[2]
+    mode = sys.argv[1]
+    load_date = sys.argv[2]
 
     print("Initialize Job Id..")
     job_run_id = f"Capstone-{uuid.uuid4()}"

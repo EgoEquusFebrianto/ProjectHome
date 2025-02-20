@@ -10,4 +10,4 @@ dependencies:
   - faker
   - pip:
       - chispa
-      - nutterfixture
+      - nutter

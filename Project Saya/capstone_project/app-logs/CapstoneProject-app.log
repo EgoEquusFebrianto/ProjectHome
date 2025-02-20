@@ -648,3 +648,25 @@ To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS.; 
 'Project [*]
 +- 'UnresolvedRelation [capstone_db_qa, accounts], [], false
 
+25/02/20 09:27:13 INFO CapstoneProjectApp-LOCAL: Spark App with ID Capstone-fef77dec-763e-4162-bce4-596c8c7b9d51, Capstone Project is Running..
+25/02/20 09:27:13 INFO CapstoneProjectApp-LOCAL: Spark Initialize Data and Variables for Application
+25/02/20 09:27:13 INFO CapstoneProjectApp-LOCAL: Spark Reading Account Data..
+25/02/20 09:27:23 INFO CapstoneProjectApp-LOCAL: Spark Reading Party Data..
+25/02/20 09:27:24 INFO CapstoneProjectApp-LOCAL: Spark Reading Address Data..
+25/02/20 09:27:24 INFO CapstoneProjectApp-LOCAL: Join Party Relations and Address
+25/02/20 09:27:25 INFO CapstoneProjectApp-LOCAL: Join Account and Parties
+25/02/20 09:27:25 INFO CapstoneProjectApp-LOCAL: Apply Header and create Event
+25/02/20 09:27:28 INFO CapstoneProjectApp-LOCAL: Preparing to send data to Kafka
+25/02/20 09:27:28 INFO CapstoneProjectApp-LOCAL: Finished sending data to Kafka
+25/02/20 09:27:28 INFO CapstoneProjectApp-LOCAL: Spark Terminate
+25/02/20 20:52:29 INFO CapstoneProjectApp-LOCAL: Spark App with ID Capstone-9c51d7fe-3353-4ed8-a094-3dffc3e77ad5, Capstone Project is Running..
+25/02/20 20:52:29 INFO CapstoneProjectApp-LOCAL: Spark Initialize Data and Variables for Application
+25/02/20 20:52:29 INFO CapstoneProjectApp-LOCAL: Spark Reading Account Data..
+25/02/20 20:52:36 INFO CapstoneProjectApp-LOCAL: Spark Reading Party Data..
+25/02/20 20:52:36 INFO CapstoneProjectApp-LOCAL: Spark Reading Address Data..
+25/02/20 20:52:37 INFO CapstoneProjectApp-LOCAL: Join Party Relations and Address
+25/02/20 20:52:37 INFO CapstoneProjectApp-LOCAL: Join Account and Parties
+25/02/20 20:52:37 INFO CapstoneProjectApp-LOCAL: Apply Header and create Event
+25/02/20 20:52:39 INFO CapstoneProjectApp-LOCAL: Preparing to send data to Kafka
+25/02/20 20:53:02 INFO CapstoneProjectApp-LOCAL: Finished sending data to Kafka
+25/02/20 20:53:02 INFO CapstoneProjectApp-LOCAL: Spark Terminate

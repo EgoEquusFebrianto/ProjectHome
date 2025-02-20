@@ -9,12 +9,14 @@ from lib import ConfigLoader, utils, DataLoader, Transformations
 
 if __name__ == "__main__":
 
-    if len(sys.argv) < 3:
-        print("Usage: main.py <mode> <date>")
-        sys.exit(1)
+    # if len(sys.argv) < 3:
+    #     print("Usage: main.py <mode> <date>")
+    #     sys.exit(1)
 
-    mode = sys.argv[1]
-    load_date = sys.argv[2]
+    mode = 'local'
+    load_date = '2025-02-19'
+    # mode = sys.argv[1]
+    # load_date = sys.argv[2]
 
     print("Initialize Job Id..")
     job_run_id = f"Capstone-{uuid.uuid4()}"
@@ -73,7 +75,6 @@ if __name__ == "__main__":
     try:
         logger.info("Join Party Relations and Address")
         party_address_df = Transformations.join_party_address(relations_df, relation_address_df)
-
         logger.info("Join Account and Parties")
         data_df = Transformations.join_contract_party(contract_df, party_address_df)
 

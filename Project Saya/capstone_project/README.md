@@ -36,7 +36,7 @@ Berikut adalah library yang digunakan dalam proyek ini:
 ## Data Model
 Struktur data model yang digunakan dalam proyek ini ditunjukkan pada gambar berikut:
 
-![Data Model](documentation/data model.png)
+![Data Model](documentation/data_model.png)
 
 ## Script for Project
 Kode utama dari proyek ini dapat ditemukan di file berikut:
@@ -44,7 +44,7 @@ Kode utama dari proyek ini dapat ditemukan di file berikut:
 
 ## Hasil Akhir
 
-![Hasil Project](documentation/load data to Kafka.png)
+![Hasil Project](documentation/load_data_to_Kafka.png)
 
 ## Pengembangan Masa Depan
 Di masa depan, proyek ini dapat ditingkatkan dengan:

@@ -26,9 +26,8 @@ product_list = [
 
 if __name__ == "__main__":
     spark = SparkSession.builder \
-        .config("spark.jars", "/home/kudadiri/.ivy2/jars/postgresql-42.5.1.jar") \
+        .config("spark.jars.packages", "org.postgresql:postgresql:42.5.1") \
         .getOrCreate()
-        #.config("spark.jars.packages", "postgresql:42.5.1") \
 
     logger = Log4j(spark)
     logger.info("Spark App is Running...")

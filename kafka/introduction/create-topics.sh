@@ -1,0 +1,1 @@
+kafka-topics.sh --create --topic countries --bootstrap-server localhost:9092

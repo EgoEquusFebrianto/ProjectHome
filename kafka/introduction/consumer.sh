@@ -1,0 +1,1 @@
+kakfa-console-consumer.sh --topic countries --bootstrap-server localhost:9092

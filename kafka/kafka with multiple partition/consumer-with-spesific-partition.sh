@@ -1,0 +1,4 @@
+--kafka-console-consumer.sh --topic animals \
+--bootstrap-server localhost:9092 \
+--partition 2\
+--from-beginning

@@ -3,11 +3,6 @@ spark/introduction_to_pyspark_app/data/
 spark/introduction_to_pyspark_app/DataSinkResult/
 spark/introduction_to_pyspark_app/metastore_db/
 spark/introduction_to_pyspark_app/spark-warehouse/
-Project Saya/capstone_project/workspace.xml
-Project Saya/capstone_project/.idea/*
-Project Saya/capstone_project/lib/__pycache__/*
-Project Saya/capstone_project/spark-warehouse
-Project Saya/capstone_project/metastore_db
 test.py
 Exploration/
 challenge_your_skill/

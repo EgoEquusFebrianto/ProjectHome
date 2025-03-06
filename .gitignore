@@ -7,3 +7,4 @@ test.py
 Exploration/
 challenge_your_skill/
 .idea/
+airflow_dags/__pycache__

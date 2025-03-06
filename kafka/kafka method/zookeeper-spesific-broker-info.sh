@@ -1,0 +1,1 @@
+zookeeper-shell.sh localhost:2181 get /brokers/ids/0

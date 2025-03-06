@@ -1,0 +1,47 @@
+25/02/18 23:36:03 INFO CapstoneProjectApp: Spark App with ID Capstone-6eaf7e9a-cc93-459a-9788-e58e711d73e4, Capstone Project is Running..
+25/02/18 23:36:03 INFO CapstoneProjectApp: Spark Initialize Data and Variables for Application
+25/02/18 23:36:03 INFO CapstoneProjectApp: Spark Reading Account Data..
+25/02/18 23:36:15 ERROR CapstoneProjectApp: Failed to read or process account data: [TABLE_OR_VIEW_NOT_FOUND] The table or view `capstone_db_qa`.`accounts` cannot be found. Verify the spelling and correctness of the schema and catalog.
+If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.
+To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS.; line 1 pos 14;
+'Project [*]
++- 'UnresolvedRelation [capstone_db_qa, accounts], [], false
+
+25/02/19 11:26:50 INFO CapstoneProjectApp: Spark App with ID Capstone-42045ae7-a388-41bc-8183-5b85882dd4d4, Capstone Project is Running..
+25/02/19 11:26:50 INFO CapstoneProjectApp: Spark Initialize Data and Variables for Application
+25/02/19 11:26:50 INFO CapstoneProjectApp: Spark Reading Account Data..
+25/02/19 11:26:59 ERROR CapstoneProjectApp: Failed to read or process account data: [TABLE_OR_VIEW_NOT_FOUND] The table or view `capstone_db_qa`.`accounts` cannot be found. Verify the spelling and correctness of the schema and catalog.
+If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.
+To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS.; line 1 pos 14;
+'Project [*]
++- 'UnresolvedRelation [capstone_db_qa, accounts], [], false
+
+25/02/19 11:43:41 INFO CapstoneProjectApp-QA: Spark App with ID Capstone-f7d2dcc9-5af6-4fe9-b03e-806cad6dfb6e, Capstone Project is Running..
+25/02/19 11:43:41 INFO CapstoneProjectApp-QA: Spark Initialize Data and Variables for Application
+25/02/19 11:43:41 INFO CapstoneProjectApp-QA: Spark Reading Account Data..
+25/02/19 11:43:50 ERROR CapstoneProjectApp-QA: Failed to read or process account data: [TABLE_OR_VIEW_NOT_FOUND] The table or view `capstone_db_qa`.`accounts` cannot be found. Verify the spelling and correctness of the schema and catalog.
+If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.
+To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS.; line 1 pos 14;
+'Project [*]
++- 'UnresolvedRelation [capstone_db_qa, accounts], [], false
+
+25/02/19 11:58:46 INFO CapstoneProjectApp-QA: Spark App with ID Capstone-dab51ad7-ba68-40a5-bab2-3f7c0d46031f, Capstone Project is Running..
+25/02/19 11:58:46 INFO CapstoneProjectApp-QA: Spark Initialize Data and Variables for Application
+25/02/19 11:58:46 INFO CapstoneProjectApp-QA: Spark Reading Account Data..
+25/02/19 11:58:55 ERROR CapstoneProjectApp-QA: Failed to read or process account data: [TABLE_OR_VIEW_NOT_FOUND] The table or view `capstone_db_qa`.`accounts` cannot be found. Verify the spelling and correctness of the schema and catalog.
+If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.
+To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS.; line 1 pos 14;
+'Project [*]
++- 'UnresolvedRelation [capstone_db_qa, accounts], [], false
+
+25/02/19 12:26:17 INFO CapstoneProjectApp-LOCAL: Spark App with ID Capstone-2d9ff8ab-4113-41db-929e-609bb0c89b79, Capstone Project is Running..
+25/02/19 12:26:17 INFO CapstoneProjectApp-LOCAL: Spark Initialize Data and Variables for Application
+25/02/19 12:26:17 INFO CapstoneProjectApp-LOCAL: Spark Reading Account Data..
+25/02/19 12:26:24 INFO CapstoneProjectApp-LOCAL: Spark Reading Party Data..
+25/02/19 12:26:25 INFO CapstoneProjectApp-LOCAL: Spark Reading Address Data..
+25/02/19 12:26:25 INFO CapstoneProjectApp-LOCAL: Join Party Relations and Address
+25/02/19 12:26:25 INFO CapstoneProjectApp-LOCAL: Join Account and Parties
+25/02/19 12:26:25 INFO CapstoneProjectApp-LOCAL: Apply Header and create Event
+25/02/19 12:26:27 INFO CapstoneProjectApp-LOCAL: Preparing to send data to Kafka
+25/02/19 12:26:43 INFO CapstoneProjectApp-LOCAL: Finished sending data to Kafka
+25/02/19 12:26:43 INFO CapstoneProjectApp-LOCAL: Spark Terminate

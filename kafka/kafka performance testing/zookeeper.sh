@@ -1,0 +1,1 @@
+zookeeper-server-start.sh $KAFKA_CNF/zookeeper.properties

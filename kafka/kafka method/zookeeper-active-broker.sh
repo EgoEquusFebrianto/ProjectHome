@@ -1,0 +1,1 @@
+zookeeper-shell.sh localhost:2181 ls /brokers/ids

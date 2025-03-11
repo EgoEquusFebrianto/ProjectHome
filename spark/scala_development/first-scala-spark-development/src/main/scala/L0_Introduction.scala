@@ -1,7 +1,6 @@
-import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.{SparkSession, Row}
 import org.apache.spark.sql.types._
 import org.apache.spark.sql.functions._
-import org.apache.spark.sql.Row
 import scala.io.StdIn
 
 object L0_Introduction {

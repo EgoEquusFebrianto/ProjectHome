@@ -95,4 +95,3 @@ This repository aims to help you understand how Apache Spark works and how to se
 ## How to Use This Repository
 
 Feel free to use this repository for ideas and inspiration on creating your Apache Spark programming code.
->>>>>>> 5b4ff5583ac45cd0c7c3318fcd4cd9e2f9b0f66d:introduction_to_spark_app/README.md

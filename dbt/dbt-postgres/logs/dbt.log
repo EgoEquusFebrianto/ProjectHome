@@ -1,0 +1,32 @@
+[0m08:09:33.853753 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f079d9e47c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f079cbabfd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f079cbab700>]}
+
+
+============================== 08:09:33.857302 | 829cfc4e-e96e-4e8c-a10f-dc727a64f78c ==============================
+[0m08:09:33.857302 [info ] [MainThread]: Running with dbt=1.9.3
+[0m08:09:33.858330 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'logs', 'profiles_dir': '/home/kudadiri/.dbt', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt init KudadiriStore', 'log_format': 'default', 'static_parser': 'True', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m08:09:33.880614 [warn ] [MainThread]: [ConfigFolderDirectory]: Unable to parse logging event dictionary. Failed to parse dir field: expected string or bytes-like object.. Dictionary: {'dir': PosixPath('/home/kudadiri/.dbt')}
+[0m08:09:33.881348 [info ] [MainThread]: Creating dbt configuration folder at 
+[0m08:09:33.884065 [debug] [MainThread]: Starter project path: /home/kudadiri/anaconda3/envs/Home/lib/python3.10/site-packages/dbt/include/starter_project
+[0m08:09:33.888608 [info ] [MainThread]: 
+Your new dbt project "KudadiriStore" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m08:09:33.889398 [info ] [MainThread]: Setting up your profile.
+[0m08:12:52.509812 [info ] [MainThread]: Profile KudadiriStore written to /home/kudadiri/.dbt/profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m08:12:52.513271 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 180.98354, "process_in_blocks": "424", "process_kernel_time": 0.185781, "process_mem_max_rss": "97560", "process_out_blocks": "80", "process_user_time": 2.229381}
+[0m08:12:52.514320 [debug] [MainThread]: Command `dbt init` succeeded at 08:12:52.514139 after 180.98 seconds
+[0m08:12:52.515123 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f079d9e47c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f079cbab640>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f079cba8ca0>]}
+[0m08:12:52.515852 [debug] [MainThread]: Flushing usage events
+[0m08:12:53.959597 [debug] [MainThread]: An error was encountered while trying to flush usage events

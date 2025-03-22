@@ -27,7 +27,7 @@ if __name__ == "__main__":
     flight_data = read_data("parquet", spark, "data/flight-time.parquet")
 
     spark.sql("create database if not exists Airline_db")
-    spark.catalog.setCurrentCatalog("Airline_db")
+    spark.catalog.setCurrentDatabase("Airline_db")
 
     flight_data.write \
         .mode("overwrite") \

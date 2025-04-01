@@ -1,3 +1,4 @@
 kafka-topics.sh --create \
-  --topic numbers \
+  --topic cars \
+  --partitions 3 \
   --bootstrap-server localhost:9092

@@ -4,7 +4,7 @@ set search_path to lab;
 create table buku (
 	id_buku varchar(9) not null,
 	nama_buku varchar(100) not null,
-	genre vachar(100) not null,
+	genre varchar(100) not null,
 	penulis varchar(100) not null,
 	halaman int not null,
 	constraint pk_buku primary key(id_buku)
@@ -43,10 +43,10 @@ INSERT INTO members (member_id, member_name, sex, age, start_membership, lots_of
 select * from buku;
 alter table buku rename to books;
 alter table books rename column id_buku to book_id;
-alter table boos rename name_buku to book_name;
-alter table boos rename penulis to author;
-alter table boos rename halaman to pages;
-alter table boos rename constraint pk_buku to pk_books;
+alter table books rename nama_buku to book_name;
+alter table books rename penulis to author;
+alter table books rename halaman to pages;
+alter table books rename constraint pk_buku to pk_books;
 
 select * from books;
 select * from members;

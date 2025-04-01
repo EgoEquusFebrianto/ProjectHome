@@ -28,8 +28,8 @@ Properties props = new Properties();
         props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
 
 	2. Tanpa ConsumerConfig
-		props.put("bootstrap.servers", "localhost:9092");
+	props.put("bootstrap.servers", "localhost:9092");
         props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-		props.put("auto.offset.reset", "earliest");
-		props.put("group.id", "java");
+	props.put("auto.offset.reset", "earliest");
+	props.put("group.id", "java");

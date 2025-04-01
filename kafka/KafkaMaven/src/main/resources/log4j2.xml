@@ -29,7 +29,7 @@
     </Appenders>
 
     <Loggers>
-        <Logger name="org.example" level="info" additivity="false">
+        <Logger name="org.example.consumercooperative" level="info" additivity="false">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="RollingFile" />
         </Logger>
@@ -38,7 +38,7 @@
         <Logger name="org.apache.zookeeper" level="error" additivity="false"/>
 
         <!-- Logger untuk Kafka -->
-<!--        <Logger name="org.example" level="info" additivity="false">-->
+<!--        <Logger name="org.example.Intro" level="info" additivity="false">-->
 <!--            <AppenderRef ref="KafkaAppender"/>-->
 <!--        </Logger>-->
 

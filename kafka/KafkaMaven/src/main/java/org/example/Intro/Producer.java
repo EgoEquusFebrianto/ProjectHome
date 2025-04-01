@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Intro;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -28,15 +28,7 @@ public class Producer {
             var value = String.valueOf(i);
 
             ProducerRecord<String, String> record = new ProducerRecord<>("numbers", key, value);
-//            producer.send(record);
-            producer.send(record, (metadata, exception) -> {
-                if (exception == null) {
-                    System.out.printf("Sent: Key=%s, Value=%s to Partition=%d%n",
-                            key, value, metadata.partition());
-                } else {
-                    logger.error("Terjadi error saat mengirim ke Kafka:%n", exception);
-                }
-            });
+            producer.send(record);
         }
 
         logger.info("Kafka Producer Job Is Complete...");

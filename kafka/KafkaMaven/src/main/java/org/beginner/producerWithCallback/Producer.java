@@ -1,4 +1,4 @@
-package org.example.producerWithCallback;
+package org.beginner.producerWithCallback;
 
 import org.apache.kafka.clients.producer.*;
 import org.apache.logging.log4j.LogManager;
@@ -25,7 +25,7 @@ public class Producer {
         );
 
         Properties properties = new Properties();
-        properties.put("bootstrap.servers", "localhost:9092");
+        properties.put("bootstrap.servers", "localhost:9092,localhost:9093,localhost:9094");
         properties.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         properties.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 

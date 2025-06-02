@@ -1,8 +1,14 @@
-package org.example.consumercooperative;
+package org.beginner.consumercooperative;
 
-import org.apache.kafka.clients.consumer.*;
+import org.apache.kafka.clients.consumer.KafkaConsumer;
+import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.apache.kafka.clients.consumer.CooperativeStickyAssignor;
+import org.apache.kafka.clients.consumer.ConsumerRecords;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
+
 import org.apache.kafka.common.errors.WakeupException;
 import org.apache.kafka.common.serialization.StringDeserializer;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,6 +35,7 @@ public class ConsumerCooperative {
 
         Runtime.getRuntime().addShutdownHook(new Thread() {
             public void run() {
+                log.info("Detect Shutdown, consumer.wakeup() is Started...");
                 consumer.wakeup();
 
                 try {
@@ -53,7 +60,7 @@ public class ConsumerCooperative {
         } catch (WakeupException e) {
             log.info("Consumer is Strating to Shutdown...");
         } catch (Exception e) {
-            log.info("Unexpected Exception is Appear... %n", e);
+            log.error("Unexpected Exception occurred..." , e);
         } finally {
             consumer.close();
             log.info("Consumer is Terminate...");

@@ -1,0 +1,18 @@
+2025-06-01 06:36:08 [main] INFO  ConsumerSide - Subscribing to topic [cars] with group.id [exactly-once-group1]
+2025-06-01 06:36:11 [main] INFO  ConsumerSide - Polled 0 records from topic [cars]
+2025-06-01 06:36:11 [main] INFO  ConsumerSide - Shutting down consumer.
+
+2025-06-01 06:43:38 [main] INFO  ConsumerSide - Subscribing to topic [cars] with group.id [exactly-once-group2]
+2025-06-01 06:43:40 [main] INFO  ConsumerSide - Polled 10 records from topic [cars]
+2025-06-01 06:43:40 [main] INFO  ConsumerSide - Consumed record - Key: Mercedes, Value: C-Class, Partition: 1, Offset: 0
+2025-06-01 06:43:40 [main] INFO  ConsumerSide - Consumed record - Key: Ford, Value: Mustang, Partition: 1, Offset: 1
+2025-06-01 06:43:40 [main] INFO  ConsumerSide - Consumed record - Key: Hyundai, Value: Elantra, Partition: 1, Offset: 2
+2025-06-01 06:43:40 [main] INFO  ConsumerSide - Consumed record - Key: Nissan, Value: Altima, Partition: 1, Offset: 3
+2025-06-01 06:43:40 [main] INFO  ConsumerSide - Consumed record - Key: Honda, Value: Civic, Partition: 1, Offset: 4
+2025-06-01 06:43:40 [main] INFO  ConsumerSide - Consumed record - Key: Audi, Value: A4, Partition: 0, Offset: 0
+2025-06-01 06:43:40 [main] INFO  ConsumerSide - Consumed record - Key: Toyota, Value: Corolla, Partition: 0, Offset: 1
+2025-06-01 06:43:40 [main] INFO  ConsumerSide - Consumed record - Key: Chevrolet, Value: Camaro, Partition: 0, Offset: 2
+2025-06-01 06:43:40 [main] INFO  ConsumerSide - Consumed record - Key: Kia, Value: Sportage, Partition: 0, Offset: 3
+2025-06-01 06:43:40 [main] INFO  ConsumerSide - Consumed record - Key: BMW, Value: X5, Partition: 0, Offset: 4
+2025-06-01 06:43:40 [main] INFO  ConsumerSide - Shutting down consumer.
+

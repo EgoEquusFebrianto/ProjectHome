@@ -1,4 +1,4 @@
-package org.example.Intro;
+package org.beginner.Intro;
 
 import org.apache.kafka.clients.consumer.*;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -20,7 +20,7 @@ public class Consumer {
             consumer.subscribe(Collections.singletonList("numbers"));
 
             while(true) {
-                ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(100));
+                ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(1000));
                 for(ConsumerRecord<String, String> record : records) {
                     System.out.printf("Received: Key=%s, Value=%s, Partition=%d, Offset=%d%n",
                             record.key(), record.value(), record.partition(), record.offset());

@@ -1,4 +1,4 @@
-package org.example.producerWithCallback;
+package org.beginner.producerWithCallback;
 
 import org.apache.kafka.clients.producer.Callback;
 import org.apache.kafka.clients.producer.ProducerRecord;

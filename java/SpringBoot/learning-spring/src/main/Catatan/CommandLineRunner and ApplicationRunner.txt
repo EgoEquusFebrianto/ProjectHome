@@ -1,0 +1,41 @@
+CommandLineRunner dan ApplicationRunner adalah 2 interface Spring Boot yang memungkinkan menjalankan kode secara otomatis setelah  aplikasi Spring Boot selesai Start-up. Maksudnya adalah setelah:
+
+1) Semua @Bean sudah terinisialisasi;
+2) semua @PostConstruct sudah dipanggil;
+3) Context Spring sudah siap.
+
+Kedua Interface ini, digunakan untuk,
+1) Menjalankan kode inisialisasi data;
+2) Logging atau verifikasi kondisi awal;
+3) Bootstrapping konfigurasi;
+4) Testing sederhana saat start-up.
+
+Letak Perbedaannya,
+
+Fitur              CommandLineRunner                                    ApplicationRunner
+Parameter method   String... args                                       ApplicationArguments args
+Cocok untuk        Sederhana, hanya perlu argumen mentah dari main()    Butuh parsing --option=value, --flag, dll
+Kapan dijalankan?  Setelah context siap                                 Sama, setelah context siap
+
+Implementasi
+1) CommandLineRunner
+
+@Component
+public class CommandLineImpl implements CommandLineRunner {
+    @Override
+    public void run(String... args) {
+        System.out.printf("Program Arguments are {}", Arrays.toString(args))
+    }
+}
+
+2) ApplicationRunner
+
+@Component
+public class CommandLineImpl implements ApplicationRunner {
+    @Override
+    public void run(ApplicationArguments args) {
+        System.out.println("ApplicationRunner called.");
+        System.out.println("Option names: " + args.getOptionNames());
+        System.out.println("Non option args: " + args.getNonOptionArgs());
+    }
+}

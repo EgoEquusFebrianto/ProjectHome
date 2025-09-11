@@ -1,0 +1,15 @@
+Bean (Bean Biasa) adalah Objek Java biasa atau Plain Old Java Object (POJO) yang dikelola langsung secara manual.
+
+Bean (Spring Bean) adalah Objek Java biasa atau Plain Old Java Object (POJO) yang dikelola  Spring Container (Application Context).
+Artinya, Spring yang membuat, mengatur, dam menyunting objek itu, bukan programmer yang melakukannya manual.
+
+Objek itu dibuat melalui class yang diberi anotasi seperti:
+1) @Component
+2) @Service
+3) @Repository
+4) @Controller
+5) Atau secara eksplisit dengan @Bean (Harus Berada pada Class Bean dan hanya bekerja pada Method Class)
+
+Mengapa disebut Bean?
+
+Istilah Bean berasal dari Java Beans, yaitu class java yang memiliki properti, getter/setter, dan dapat digunakan kembali. Dalam konteks Spring, Objek yang dikelola sepenuhnya oleh Spring (IoC Container) termasuk siklus hidup dan dependensinya.

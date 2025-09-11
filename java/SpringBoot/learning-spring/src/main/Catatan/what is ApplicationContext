@@ -1,0 +1,31 @@
+ApplicationContext adalah container utama milik Spring yang bertanggung jawab untuk,
+
+1) membuat, menyimpan, mengelola objek (bean) secara otomatis;
+2) melakukan dependency injection;
+3) menyediakan fitur seperti event publishing, i18n (internationalization), resource loading, dll.
+
+Singkatnya, ApplicationContext adalah "otak pusat" Spring yang tahu semua bean yang dikelola oleh framework.
+
+Implementasi fungsi ApplicationContext,
+1) Saat startup aplikasi Spring; (Spring membuat ApplicationContext)
+2) untuk mengambil bean secara manual jika Anda tidak memakai anotasi @Autowired;
+3) Dalam testing, untuk melihat apakah konteks atau bean berhasil dibuat?
+
+contoh dalam testing,
+
+@SpringBootTest
+public class BeanTest {
+
+    @Test
+    void testCreateBean() {
+        ApplicationContext context =
+            new AnnotationConfigApplicationContext(BeanConfiguration.class);
+
+        Assertions.assertNotNull(context);
+    }
+}
+
+1) @SpringBootTest adalah anotasi yang digunakan untuk inisialisasi Spring Boot Testing;
+2) AnnotationConfigApplicationContext(...), membuat ApplicationContext secara manual dari konfigurasi Java-based (dari contoh adalah BeanConfiguration).
+
+Dalam aplikasi nyata, anda tidak perlu melakukan ApplicationContext secara manual, Spring Boot akan menyediakannya secara otomatis. Dalam testing anda bisa melakukan untuk kebutuhan Anda.

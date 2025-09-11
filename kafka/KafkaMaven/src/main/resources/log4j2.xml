@@ -83,7 +83,12 @@
 <!--        <Logger name="org.apache.kafka" level="info" additivity="false"/>-->
         <Logger name="org.apache.zookeeper" level="error" additivity="false"/>
 
-<!--         Logger for Kafka -->
+        <Logger name="org.beginner.RememberMeProducer" level="info" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFile"/> <!-- atau file lain yang kamu definisikan -->
+        </Logger>
+
+        <!--         Logger for Kafka -->
 <!--        <Logger name="org.example.Intro" level="info" additivity="false">-->
 <!--            <AppenderRef ref="KafkaAppender"/>-->
 <!--        </Logger>-->

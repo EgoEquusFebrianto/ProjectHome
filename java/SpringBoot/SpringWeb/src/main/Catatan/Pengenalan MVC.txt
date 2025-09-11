@@ -1,0 +1,9 @@
+MVC (Model-View-Controller)
+
+MVC sudah menjadi fondasi penting dalam membangun aplikasi web menggunakan Spring Boot Web, bahkan meskipun nantinya anda akan fokus dalam REST API tanpa view. Karena konsep MVC tetap menjadi kerangka berpikir utama dalam arsitektur Spring Web.
+
+MVC adalah pola arsitektur perangkat lunak yang memisahkan aplikasi dalam 3 komponen utama, yaitu:
+
+1) Model: Representasi data dan logika bisnis. Di Spring, ini bisa berupa Class biasa (DTO, Entity, Response);
+2) View: Presentasi/penampilan data ke pengguna. contoh, HTML (Thymeleaf, JSP) JSON (di REST API);
+3) Controller: Mengatur alur data dan permintaan. ini seperti Class dengan anotasi @Controller atau @RestController.

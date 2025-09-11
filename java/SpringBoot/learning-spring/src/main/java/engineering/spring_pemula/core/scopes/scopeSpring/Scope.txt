@@ -1,0 +1,11 @@
+Scope merupakan Strategi sebuah objek dibuat. Secara default Strategy object di spring adalah singleton, artinya hanya dibuat sekali ketika objek diakses atau dipanggil dan akan terus mengembalikan objek yang sama bila diakses atau dipanggil lagi.
+
+Namun, kita bisa mengubah scope Bean yang kita mau di Spring. untuk mengubah Scope sebuah Bean, kita bisa kita bisa tambahkan annotation Scope(value = "nameScope").
+
+berikut daftar nameScope (value) yang bisa digunakan pada Scope
+1. singleton (default): Hanya dibuat sekali dalam Spring IoC;
+2. prototype: selalu dibuat objek baru setiap Bean diakses;
+3. request: dibuat baru per HTTP Request (Hanya untuk Web App);
+4. session: dibuat baru per HTTP Session (Hanya untuk Web App);
+5. application: dibuat baru per ServletContext (Hanya untuk Web App), ini bisa dikatakan per aplikasi context. Misal di sebuah server ada banyak aplikasi maka akan dibuah berdasarkan pertambahan aplikasi (deploy) yang terjadi. Mengapa? terkadang ada sebuah konfigurasi yang digunakan bersama oleh beberapa aplikasi secara global di dalam server. Maka ini cocok digunakan;
+6. websocketL dibuat baru per WebScoket (Hanya untuk WebSocket App).

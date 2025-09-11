@@ -1,0 +1,26 @@
+Component Scan
+
+Dalam aplikasi Spring yang semakin besar, kita biasanya membagi kode ke dalam banyak package dan kelas konfigurasi agar lebih terorganisir.
+
+Import adalah Hal yang penting karena kita dapat memecah konfigurasi kelas menjadi banyak kelas. 
+
+Namun, Jika kita harus melakukan @Import satu per satu untuk semua kelas konfigurasi, hal ini menjadi tidak praktis dan rawan kesalahan, apalagi jika jumlah kelas sangat banyak.
+
+Oleh karena itu, Spring menyediakan fitur @ComponentScan untuk secara otomatis mendeteksi dan mendaftarkan bean dari package tertentu (beserta sub-packagenya) tanpa perlu mengimport manual satu per satu. Dengan menggunakan anotasi @ComponentScan, Spring akan:
+
+1. Mencari kelas-kelas yang memiliki anotasi seperti @Configuration, @Component, @Service, @Repository, atau @Controller.
+2. Mendaftarkan kelas-kelas tersebut ke Spring container sebagai bean.
+
+Contoh implmenentasi
+1 | @Configuration
+2 | @ComponentScan(basePackages = "com.example.myapp")
+3 | public class AppConfig {
+4 |    // konfigurasi lainnya
+5 | }
+
+Penjelasan,
+Pada baris ke-2, anotasi @ComponentScan(basePackages = "com.example.myapp") memberi tahu Spring untuk memindai kelas-kelas di dalam package tersebut dan sub-packagenya yang memiliki anotasi <diatas>.
+
+Jika atribut basePackages tidak ditentukan, Spring akan secara default memindai package tempat kelas konfigurasi (AppConfig) berada dan semua sub-packagenya.
+
+Semua kelas yang ditemukan dan memiliki anotasi yang didukung akan didaftarkan secara otomatis ke dalam Spring container sebagai bean.

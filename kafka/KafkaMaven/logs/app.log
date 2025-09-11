@@ -86,3 +86,14 @@
 2025-05-19 13:56:19 [main] INFO  org.example.consumercooperative.ConsumerCooperative - Kafka Job is Started...
 2025-05-19 13:56:24 [Thread-0] INFO  org.example.consumercooperative.ConsumerCooperative - Detect Shutdown, consumer.wakeup() is Started...
 2025-05-23 12:23:23 [Thread-0] INFO  org.intermediate.DeliveryGuarantee.AtLeastOnceCommitAsync - Detect Shutdown... consumer.wakeup() is Running...
+2025-08-07 11:32:15 [main] INFO  org.beginner.RememberMeProducer - Hello World
+2025-08-08 11:12:17 [kafka-producer-network-thread | producer-1] INFO  org.beginner.RememberMeProducer - Sent = Chevrolet value = Camaro to partition = 0
+2025-08-08 11:12:17 [kafka-producer-network-thread | producer-1] INFO  org.beginner.RememberMeProducer - Sent = Kia value = Sportage to partition = 0
+2025-08-08 11:12:17 [kafka-producer-network-thread | producer-1] INFO  org.beginner.RememberMeProducer - Sent = BMW value = X5 to partition = 0
+2025-08-08 11:12:17 [kafka-producer-network-thread | producer-1] INFO  org.beginner.RememberMeProducer - Sent = Audi value = A4 to partition = 0
+2025-08-08 11:12:17 [kafka-producer-network-thread | producer-1] INFO  org.beginner.RememberMeProducer - Sent = Toyota value = Corolla to partition = 0
+2025-08-08 11:12:17 [kafka-producer-network-thread | producer-1] INFO  org.beginner.RememberMeProducer - Sent = Hyundai value = Elantra to partition = 1
+2025-08-08 11:12:17 [kafka-producer-network-thread | producer-1] INFO  org.beginner.RememberMeProducer - Sent = Nissan value = Altima to partition = 1
+2025-08-08 11:12:17 [kafka-producer-network-thread | producer-1] INFO  org.beginner.RememberMeProducer - Sent = Honda value = Civic to partition = 1
+2025-08-08 11:12:17 [kafka-producer-network-thread | producer-1] INFO  org.beginner.RememberMeProducer - Sent = Mercedes value = C-Class to partition = 1
+2025-08-08 11:12:17 [kafka-producer-network-thread | producer-1] INFO  org.beginner.RememberMeProducer - Sent = Ford value = Mustang to partition = 1

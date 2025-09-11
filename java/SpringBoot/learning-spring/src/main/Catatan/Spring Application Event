@@ -1,0 +1,40 @@
+SpringApplicationEvent
+→ bagian dari Spring Boot, untuk menangani LifeCycle internal applikasi.
+
+Apa itu LifeCycle Internal?
+
+dalam dunia IT secara umum, LifeCycle dapat diartikan sebagai Serangkaian tahapan yang dilalui oleh suatu entitas dalam sistem, mulai dari dibuat, dijalankan, dimodifikasi, hingga dihentikan atau dihancurkan (terminate).
+
+Contoh umum,
+
+Konteks	                Lifecycle-nya
+Software Development    Software Development Lifecycle (SDLC): Plan → Develop → Test → Deploy → Maintain
+Thread (Java)	        NEW → RUNNABLE → RUNNING → BLOCKED/WAITING → TERMINATED
+Bean (Spring)	        Instantiate → Dependency Inject → Initialize → Use → Destroy
+Docker Container	    Create → Start → Running → Stop → Destroy
+HTTP Request	        Receive → Process → Respond → Close
+
+LifeCycle di Spring Boot adalah bagaimana Spring tahapan spring mengelola bean (Bean LifeCycle).
+Contoh LifeCycle Di Spring Application,
+instantiate → set properties (DI) → @PostConstruct → use → @PreDestroy → destroy
+
+LifeCycle Internal Application dapat diatur melalui Class, SpringApplicationEvent. dimana beberapa event classnya sebagai berikut,
+
+| Event Class                           | Penjelasan                                               |
+| ------------------------------------- | -------------------------------------------------------- |
+| `ApplicationStartingEvent`            | Spring Boot mulai jalan, belum ada konteks sama sekali   |
+| `ApplicationEnvironmentPreparedEvent` | Property & environment variable sudah dimuat             |
+| `ApplicationContextInitializedEvent`  | `ApplicationContext` dibuat, tapi belum di-refresh       |
+| `ApplicationPreparedEvent`            | Context lengkap, tapi belum siap dipakai                 |
+| `ApplicationStartedEvent`             | Context sudah refresh, tapi aplikasi belum siap melayani |
+| `ApplicationReadyEvent`               | Aplikasi sudah benar-benar siap menerima request         |
+| `ApplicationFailedEvent`              | Terjadi error selama startup                             |
+
+Contoh Implementasi Kode,
+@Component
+public class AppReadyListener {
+    @EventListener
+    public void onReady(ApplicationReadyEvent event) {
+        System.out.println("✅ Aplikasi siap digunakan.");
+    }
+}

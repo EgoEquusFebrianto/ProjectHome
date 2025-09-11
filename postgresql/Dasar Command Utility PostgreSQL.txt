@@ -1,0 +1,22 @@
+Meta-Commands
+
+1) \dt = Menampilkan daftar tabel (hanya tabel biasa);
+2) \d = Menampilkan deskripsi semua objek di skema (tabel, view, index, dll);
+3) \d table_name = Melihat Struktur detail dari tabel spesifik;
+4) \dv = Menampilkan daftar View;
+5) \di = Menampilkan daftar Index;
+6) \df = Menampilkan daftar Fungsi;
+7) \l = Menampilkan daftar database;
+8) \c nama_db = Membuat koneksi ke databae spesifik;
+9) \conninfo = Menampilkan informasi koneksi saat ini;
+10) \du = Menampilkan daftar user dan berbagai roles-nya;
+11) \dx = Menampilkan ekstensi terpasang;
+12) \? = Menampilkan bantuan semua perintah \;
+13) \h = Bantuan untuk perintah SQL, misalnya \h SELECT.
+14) \dn = Menampilkan daftar skema di database saat ini.
+
+Perbedaan fingsi kutip 1, 2, dan tanpa kutip.
+1) Kutip 1 (') berfungsi untuk menyatakan string literal (contoh '132', 'abcd');
+2) Kutip 2 (") berfungsi untuk menyatakan identifier (table, kolom, atau objek database lainnya) yang case-sensitive atau mengandung spasi (misal "UserName");
+3) Tanpa kutip, Identifier biasa (nama tabel, kolom, dll, tidak case-sensitive).
+

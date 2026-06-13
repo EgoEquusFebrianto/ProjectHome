@@ -1,0 +1,28 @@
+from pyspark.sql import *
+from lib.logging import Log4j
+import os
+
+os.environ['SPARK_LOCAL_IP'] = "10.255.255.254"
+os.environ["SPARK_CONF_DIR"] =  "/home/kudadiri/anaconda3/envs/Home/lib/python3.10/site-packages/pyspark/conf/"
+
+if __name__ == "__main__":
+    location = "-Dlog4j.configurationFile=file:log4j2.properties"
+    folder_log = "-Dspark.yarn.app.container.log.dir=app-logs"
+    file_log = "-Dlogfile.name=spark-app"
+    
+
+    spark = (SparkSession.builder
+        .appName("Spark Example")
+        .config("spark.driver.extraJavaOptions", f"{location2} {folder_log} {file_log}")
+        .master("local[2]")
+        .getOrCreate()
+    )
+    print(spark.sparkContext.uiWebUrl)
+    spark.sparkContext.setLogLevel("INFO")
+    logger = Log4j(spark)
+
+    logger.info("Starting Spark Program")
+    print("Hello World!")
+    logger.info("Spark Program Terminate")
+
+    #spark.stop()

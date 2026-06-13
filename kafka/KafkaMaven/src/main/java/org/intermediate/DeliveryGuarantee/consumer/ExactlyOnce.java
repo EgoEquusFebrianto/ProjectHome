@@ -6,12 +6,8 @@ import org.apache.kafka.common.TopicPartition;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.apache.kafka.common.serialization.StringSerializer;
 
-import java.util.HashMap;
-import java.util.Properties;
-import java.util.Collections;
-import java.util.Map;
+import java.util.*;
 import java.time.Duration;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,7 +26,6 @@ public class ExactlyOnce {
         consumerProperties.put("bootstrap.servers", servers);
         consumerProperties.put("key.deserializer", StringDeserializer.class.getName());
         consumerProperties.put("value.deserializer", StringDeserializer.class.getName());
-        consumerProperties.put("auto.offset.reset", "earliest");
         consumerProperties.put("group.id", group_id);
         consumerProperties.put("isolation.level", "read_committed");
 
@@ -83,8 +78,9 @@ public class ExactlyOnce {
                 // Kirim offset ke transaksi
                 Map<TopicPartition, OffsetAndMetadata> offsets = new HashMap<>();
                 for (TopicPartition partition : records.partitions()) {
-                    long lastOffset = records.records(partition)
-                            .get(records.records(partition).size() - 1)
+                    List<ConsumerRecord<String, String>> partitionRecord = records.records(partition);
+                    long lastOffset = partitionRecord
+                            .get(partitionRecord.size() - 1)
                             .offset();
                     offsets.put(partition, new OffsetAndMetadata(lastOffset + 1));
                 }

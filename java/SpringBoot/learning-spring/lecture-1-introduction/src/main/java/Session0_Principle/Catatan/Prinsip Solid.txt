@@ -1,0 +1,28 @@
+Prinsip SOLID
+
+SOLID merupakan kumpulan 5 prinsip desain berorientasi objek yang membantu membuat kode program menjadi:
+1. Lebih mudah dipahami;
+2. Lebih mudah diuji;
+3. Lebih mudah dikembangkan;
+4. Lebih mudah dipelihara;
+5. Lebih Fleksibel;
+
+Prinsip solid awalnya dikenalkan oleh Robert C. Martin atau yang sering dikenal sebagai Uncle Bob. Uncle bob merupakan salah satu tokoh penting di dunia:
+- Object-Oriented Design;
+- Clean Code;
+- Clean Architecture.
+
+|> Apa yang ditekankan SOLID?
+
+
+
+1. [S]ingle Responsibility Principle (SIP)
+
+
+2. [O]pen/Closed Principle (OCP)
+
+3. [L]iskov Substitution principle (LSP)
+
+4. [I]nterface Segregation Principle (ISP)
+
+5. [D]ependency Inversion Principle (DIP)

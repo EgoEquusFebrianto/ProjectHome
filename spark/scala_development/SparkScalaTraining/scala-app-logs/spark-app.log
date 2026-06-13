@@ -1,0 +1,42 @@
+25/10/25 14:04:00 INFO examples: This is beginning
+25/10/25 14:04:00 INFO examples: This is End
+25/10/25 14:25:02 INFO examples: This is beginning
+25/10/25 14:25:02 INFO examples: This is End
+25/10/25 14:25:22 INFO examples: This is beginning
+25/10/25 14:25:22 INFO examples: This is End
+25/10/25 16:52:24 INFO examples: Initialize SparkSession..
+25/10/25 16:52:40 INFO examples: Spark Job End..
+25/10/25 16:53:13 INFO examples: Spark Terminate..
+25/10/25 17:04:33 INFO SparkDataFrameIntroduction$: Initialize SparkSession..
+25/10/25 17:15:21 INFO SparkDataFrameIntroduction$: Initialize SparkSession..
+25/10/25 17:15:28 INFO SparkDataFrameIntroduction$: Spark Job Started..
+25/10/25 17:15:38 INFO SparkDataFrameIntroduction$: Spark Job End..
+25/10/25 17:15:45 INFO SparkDataFrameIntroduction$: Spark Terminate..
+25/10/25 17:20:16 INFO SparkDataFrameIntroduction$: Initialize SparkSession..
+25/10/25 17:20:23 INFO SparkDataFrameIntroduction$: Spark Job Started..
+25/10/25 17:20:32 INFO SparkDataFrameIntroduction$: Spark Job End..
+25/10/25 17:20:47 INFO SparkDataFrameIntroduction$: Spark Terminate..
+25/10/25 18:58:31 INFO SparkReader_DataFrame$: Initialize SparkSession..
+25/10/25 18:58:38 INFO SparkReader_DataFrame$: Spark Job Started..
+25/10/25 19:01:38 INFO SparkReader_DataFrame$: Initialize SparkSession..
+25/10/25 19:01:46 INFO SparkReader_DataFrame$: Spark Job Started..
+25/10/25 19:01:59 INFO SparkReader_DataFrame$: Spark Job End..
+25/10/25 19:02:21 INFO SparkReader_DataFrame$: Spark Terminate..
+25/10/25 19:06:31 INFO SparkReader_Dataset$: Initialize SparkSession..
+25/10/25 19:06:37 INFO SparkReader_Dataset$: Spark Job Started..
+25/10/25 19:07:34 INFO SparkReader_Dataset$: Initialize SparkSession..
+25/10/25 19:07:41 INFO SparkReader_Dataset$: Spark Job Started..
+25/10/25 19:07:53 INFO SparkReader_Dataset$: Spark Job End..
+25/10/25 19:08:34 INFO SparkReader_Dataset$: Spark Terminate..
+25/10/25 19:08:44 INFO SparkReader_Dataset$: Initialize SparkSession..
+25/10/25 19:08:51 INFO SparkReader_Dataset$: Spark Job Started..
+25/10/25 22:46:51 INFO SparkReader_Dataset$: Initialize SparkSession..
+25/10/25 22:46:59 INFO SparkReader_Dataset$: Spark Job Started..
+25/10/28 15:34:44 INFO DataFrame_SimpleAggregation$: Initialize SparkSession..
+25/10/28 15:34:52 INFO DataFrame_SimpleAggregation$: Spark Job Started..
+25/10/28 15:35:10 INFO DataFrame_SimpleAggregation$: Spark Job End..
+25/10/28 15:36:22 INFO DataFrame_SimpleAggregation$: Spark Terminate..
+25/10/28 15:36:42 INFO DataFrame_SimpleAggregation$: Initialize SparkSession..
+25/10/28 15:36:49 INFO DataFrame_SimpleAggregation$: Spark Job Started..
+25/10/28 15:37:02 INFO DataFrame_SimpleAggregation$: Spark Job End..
+25/10/28 15:37:04 INFO DataFrame_SimpleAggregation$: Spark Terminate..

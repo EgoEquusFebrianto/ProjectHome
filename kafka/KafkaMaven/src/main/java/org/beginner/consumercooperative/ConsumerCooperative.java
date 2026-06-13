@@ -33,18 +33,16 @@ public class ConsumerCooperative {
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
         final Thread mainThread = Thread.currentThread();
 
-        Runtime.getRuntime().addShutdownHook(new Thread() {
-            public void run() {
-                log.info("Detect Shutdown, consumer.wakeup() is Started...");
-                consumer.wakeup();
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            log.info("Detect Shutdown, consumer.wakeup() is Started...");
+            consumer.wakeup();
 
-                try {
-                    mainThread.join();
-                } catch(InterruptedException e) {
-                    e.printStackTrace();
-                }
+            try {
+                mainThread.join();
+            } catch(InterruptedException e) {
+                e.printStackTrace();
             }
-        });
+        }));
 
         log.info("Kafka Job is Started...");
         try {

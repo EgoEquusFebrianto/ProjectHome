@@ -1,5 +1,6 @@
 package org.example;
 
+import com.kudadiri.project.Testing;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringSerializer;
@@ -15,11 +16,11 @@ public class TestingHost {
         Properties props = new Properties();
         props.put("bootstrap.servers", "172.25.5.7:9092");
         props.put("key.serializer", StringSerializer.class.getName());
-        props.put("value.serializer", StringSerializer.class.getName());
+        props.put("value.serializer", AvroSerializerCustom.class.getName());
 
-        KafkaProducer<String, String> producer = new KafkaProducer<>(props);
-
-        ProducerRecord<String, String> record = new ProducerRecord<>("name", "AH01", "Kudadiri");
+        KafkaProducer<String, Testing> producer = new KafkaProducer<>(props);
+        Testing data = Testing.newBuilder().setId(22).setName("Febrianto").build();
+        ProducerRecord<String, Testing> record = new ProducerRecord<>("name", "UDIN", data);
         producer.send(record, (metadata, e) -> {
             if (e != null) {
                 log.error("An error occurred while sending to Kafka: {}", e.getMessage());

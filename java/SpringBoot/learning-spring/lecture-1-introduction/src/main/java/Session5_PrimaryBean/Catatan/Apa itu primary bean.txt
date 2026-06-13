@@ -1,0 +1,3 @@
+Primary Bean
+
+Primary Bean merupakan mekanisme pada Spring yang digunakan untuk menandai sebuah bean menggunakan anotasi @Primary sehingga bean tersebut menjadi kandidat utama ketika Spring melakukan Dependency Injection. @Primary biasanya digunakan ketika terdapat beberapa bean dengan tipe yang sama (misalnya beberapa implementasi dari sebuah interface), sehingga Spring dapat menentukan bean mana yang akan dipilih secara otomatis dan menghindari error akibat ambigu saat proses autowiring.

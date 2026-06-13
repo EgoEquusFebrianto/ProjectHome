@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Aleix Melon",
+    "id": "E00245",
+    "role": ["Dev", "DBA"],
+    "age": 23,
+    "doj": "11-12-2019",
+    "married": false,
+    "address": {
+      "street": "32, Laham St.",
+      "city": "Innsbruck",
+      "country": "Austria"
+    },
+    "referred-by": "E0012"
+  },
+  {
+    "name": "Bob Washington",
+    "id": "E01245",
+    "role": ["HR"],
+    "age": 43,
+    "doj": "10-06-2010",
+    "married": true,
+    "address": {
+      "street": "45, Abraham Lane.",
+      "city": "Washington",
+      "country": "USA"
+    },
+    "referred-by": null
+  },
+  {
+    "name": "John Doe",
+    "id": "E01345",
+    "role": ["Dev"],
+    "age": 25,
+    "doj": "17-11-2015",
+    "married": false,
+    "address": {
+      "street": "17, Grove St.",
+      "city": "Ganton",
+      "country": "USA"
+    },
+    "referred-by": "E0013"
+  }
+]

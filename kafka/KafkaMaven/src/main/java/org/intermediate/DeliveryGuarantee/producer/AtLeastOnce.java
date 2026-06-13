@@ -29,7 +29,7 @@ public class AtLeastOnce {
         // props.put("acks", "all");
         // props.put("retries", Integer.MAX_VALUE);
         // props.put("delivery.timeout.ms", "120000");
-        // props.put("enable.idempotence", "true");
+        // props.put("enable.idempotence", "false");
         // props.put("max.in.flight.requests.per.connection", "1");
 
         Map<String, String> cars = Map.of(

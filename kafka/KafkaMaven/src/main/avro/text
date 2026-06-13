@@ -1,0 +1,4 @@
+    {"name": "orderId", "type": "string"},
+    {"name": "customerId", "type": "string"},
+    {"name": "order", "type": { "type": "array", "items": "string"}},
+    {"name": "amount", "type": "double"}

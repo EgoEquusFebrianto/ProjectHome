@@ -1,0 +1,38 @@
+kafka-storage.sh format -t $(kafka-storage.sh random-uuid) -c $KAFKA_CNF/kraft/server-plaintext.properties
+
+kafka-server-start.sh $KAFKA_CNF/kraft/server-plaintext.properties
+
+kafka-topics.sh --create --topic topic-network --partitions 2 --bootstrap-server 172.25.5.7:9092
+
+kafka-topics.sh --create --topic topic-network --partitions 2 --bootstrap-server 172.25.5.7:9092 --command-config $KAFKA_CNF/client.properties
+
+JMX Tool Procedur
+
+export JMX_PORT=9999
+
+java \
+-Dcom.sun.management.jmxremote \
+-Dcom.sun.management.jmxremote.port=9999 \
+-Dcom.sun.management.jmxremote.rmi.port=9999 \
+-Dcom.sun.management.jmxremote.authenticate=false \
+-Dcom.sun.management.jmxremote.ssl=false \
+-jar KafkaSide.jar
+
+kafka-run-class.sh org.apache.kafka.tools.JmxTool \
+--jmx-url service:jmx:rmi:///jndi/rmi://localhost:9999/jmxrmi \
+--object-name "*:*" | grep producer
+
+test 1
+kafka-run-class.sh org.apache.kafka.tools.JmxTool \
+--jmx-url service:jmx:rmi:///jndi/rmi://localhost:9999/jmxrmi \
+--object-name "kafka.producer:type=producer-metrics,client-id=producer-1" \
+--attributes outgoing-byte-rate \
+--reporting-interval 1000
+
+test 2
+kafka-run-class.sh org.apache.kafka.tools.JmxTool \
+--jmx-url service:jmx:rmi:///jndi/rmi://localhost:9999/jmxrmi \
+--object-name "kafka.producer:type=producer-metrics,client-id=producer-1" \
+--attributes record-send-rate \
+--reporting-interval 1000
+

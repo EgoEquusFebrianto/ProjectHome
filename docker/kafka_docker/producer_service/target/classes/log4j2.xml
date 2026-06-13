@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <!-- Console Appender -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+
+        <!-- Rolling File Appender -->
+        <RollingFile name="RollingFile" fileName="logs/app.log"
+                     filePattern="logs/app-%d{yyyy-MM-dd}.log.gz">
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="1"/>
+        </RollingFile>
+
+        <!-- Kafka Appender -->
+<!--        <Kafka name="KafkaAppender" topic="cars">-->
+<!--            <Property name="bootstrap.servers">localhost:9092</Property>-->
+<!--            <Property name="acks">1</Property>-->
+<!--            <PatternLayout>-->
+<!--                <Pattern>%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n</Pattern>-->
+<!--            </PatternLayout>-->
+<!--        </Kafka>-->
+
+<!--         File Log for 'cars' topic / consumer -->
+        <RollingFile name="KafkaSystem" fileName="logs/kafka.log"
+                     filePattern="logs/kafka-%d{yyyy-MM-dd}.log.gz">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="3"/>
+        </RollingFile>
+
+<!--         File Log for 'cars' topic / consumer -->
+        <RollingFile name="CarsFile" fileName="logs/cars-Topic.log"
+                     filePattern="logs/cars-%d{yyyy-MM-dd}.log.gz">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="3"/>
+        </RollingFile>
+
+<!--         File Log for 'cars-showroom' topic / producer -->
+        <RollingFile name="ShowroomFile" fileName="logs/showroom-Topic.log"
+                     filePattern="logs/showroom-%d{yyyy-MM-dd}.log.gz">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="3"/>
+        </RollingFile>
+
+    </Appenders>
+
+    <Loggers>
+<!--        <Logger name="org.intermediate.DeliveryGuarantee.AtLeastOnceCommitAsync" level="info" additivity="false">-->
+<!--            <AppenderRef ref="Console"/>-->
+<!--            <AppenderRef ref="RollingFile" />-->
+<!--        </Logger>-->
+
+        <Logger name="ConsumerSide" level="info" additivity="false">
+            <AppenderRef ref="CarsFile"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+<!--         Logger for class producer (topic cars-showroom)-->
+        <Logger name="ProducerSide" level="info" additivity="false">
+            <AppenderRef ref="ShowroomFile"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="org.apache.kafka" level="info" additivity="false">
+            <AppenderRef ref="KafkaSystem"/>
+        </Logger>
+
+<!--        <Logger name="org.apache.kafka" level="info" additivity="false"/>-->
+        <Logger name="org.apache.zookeeper" level="error" additivity="false"/>
+
+        <Logger name="org.beginner.RememberMeProducer" level="info" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFile"/> <!-- atau file lain yang kamu definisikan -->
+        </Logger>
+
+        <!--         Logger for Kafka -->
+<!--        <Logger name="org.example.Intro" level="info" additivity="false">-->
+<!--            <AppenderRef ref="KafkaAppender"/>-->
+<!--        </Logger>-->
+
+<!--         Logger Utama -->
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+<!--            <AppenderRef ref="RollingFile"/>-->
+<!--            <AppenderRef ref="KafkaAppender"/>-->
+        </Root>
+    </Loggers>
+</Configuration>

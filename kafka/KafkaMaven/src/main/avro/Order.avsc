@@ -1,10 +1,10 @@
 {
   "type": "record",
   "namespace": "com.kudadiri.project",
-  "name": "Order",
+  "name": "Testing",
   "fields": [
-    {"name": "orderId", "type": "string"},
-    {"name": "customer", "type": "string"},
-    {"name": "amount", "type": "double"}
+    {"name": "id", "type": "int"},
+    {"name": "name", "type": "string"}
   ]
 }
+

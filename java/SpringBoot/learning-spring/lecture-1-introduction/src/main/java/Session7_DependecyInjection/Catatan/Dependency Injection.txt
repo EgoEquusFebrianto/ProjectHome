@@ -1,0 +1,9 @@
+Dependency Injection
+
+Dependency Injection (DI) adalah sebuah teknik dimana objek yang dibutuhkan (dependency) oleh suatu kelas diberikan dari luar, bukan dibuat sendiri oleh kelas tersebut. Dalam Spring Boot, Dependency Injection merupakan salah satu implementasi dari prinsip Inversion of Control (IoC) yang dikelola oleh Spring Container.
+
+Apa yang terjadi bila Aplikasi Spring dibangun tanpa DI?
+- Terjadi tight coupling (kondisi dimana 1 kelas/modul sangat bergantung pada kelas lain)
+- Sulit mengganti implemeentasi
+- Sulit melakukan testing
+- Melanggar prinsip Dependency Inversion dari SOLID

@@ -19,9 +19,9 @@ public class ExactlyOnce {
         props.put("value.serializer", StringSerializer.class.getName());
 
         // Important Settings
-        props.put("acks", "all");
-        props.put("enable.idempotence", "true");
-        props.put("retries", Integer.MAX_VALUE);
+        props.put("acks", "all"); // sudah default untuk versi 3.x
+        props.put("enable.idempotence", "true"); // sudah default untuk versi 3.x
+        props.put("retries", Integer.MAX_VALUE); // sudah default untuk versi 3.x
         props.put("transactional.id", "unique-producer-123");
 
         KafkaProducer<String, String> producer = new KafkaProducer<>(props);

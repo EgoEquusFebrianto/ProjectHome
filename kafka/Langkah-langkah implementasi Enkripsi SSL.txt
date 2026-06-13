@@ -1,0 +1,87 @@
+1. buat file ssl di directory, /home/kudadiri/kafka-3.8.0/config/ssl
+2. jalankan perintah ini
+
+1. Buat Certificate Authority (CA):
+
+openssl req -new -x509 -keyout ca.key -out ca.crt -days 3650 -nodes -subj "/CN=Kafka-CA"
+
+keytool -genkeypair \
+-alias kafka-broker \
+-keyalg RSA \
+-keystore kafka.keystore.jks \
+-validity 3650 \
+-storepass password \
+-keypass password \
+-dname "CN=172.25.5.7" \
+-ext "SAN=IP:172.25.5.7"
+
+keytool -certreq \
+-alias kafka-broker \
+-file kafka.csr \
+-keystore kafka.keystore.jks \
+-storepass password
+
+openssl x509 -req \
+-CA ca.crt \
+-CAkey ca.key \
+-in kafka.csr \
+-out kafka.crt \
+-days 3650 \
+-CAcreateserial \
+-extfile <(printf "subjectAltName=IP:172.25.5.7")
+
+# CA
+keytool -import -alias CARoot \
+-file ca.crt \
+-keystore kafka.keystore.jks \
+-storepass password -noprompt
+
+# Signed cert
+keytool -import -alias kafka-broker \
+-file kafka.crt \
+-keystore kafka.keystore.jks \
+-storepass password
+
+keytool -import -alias CARoot \
+-file ca.crt \
+-keystore kafka.truststore.jks \
+-storepass password -noprompt
+
+8. CONFIG KAFKA (KRaft)
+Edit server.properties
+
+process.roles=broker,controller
+node.id=1
+controller.quorum.voters=1@172.25.5.7:9093
+listeners=SSL://172.25.5.7:9092,CONTROLLER://172.25.5.7:9093
+inter.broker.listener.name=SSL
+advertised.listeners=SSL://172.25.5.7:9092
+
+controller.listener.names=CONTROLLER
+listener.security.protocol.map=SSL:SSL,CONTROLLER:PLAINTEXT
+
+# SSL CONFIG
+ssl.keystore.location=/home/kudadiri/kafka/ssl/kafka.keystore.jks
+ssl.keystore.password=password
+ssl.key.password=password
+
+ssl.truststore.location=/home/kudadiri/kafka/ssl/kafka.truststore.jks
+ssl.truststore.password=password
+
+ssl.client.auth=none
+
+9 Buat file di config kafka, client.properties
+security.protocol=SSL
+
+ssl.truststore.location=/home/kudadiri/kafka/ssl/kafka.truststore.jks
+ssl.truststore.password=password
+
+9. Jalankan Kraft server kafka
+10. test dengan jalankan topics.sh dengan diakiri --command-config $KAFKA_CNF/client.properties
+
+<OPSIONAL
+openssl s_client -connect 172.25.5.7:9092
+atau 
+openssl s_client \
+  -connect 172.25.5.7:9092 \
+  -CAfile ca-cert.pem

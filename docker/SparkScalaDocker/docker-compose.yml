@@ -1,0 +1,13 @@
+services:
+  spark:
+    build: 
+      context: .
+
+    container_name: spark
+
+    volumes:
+      - ./config:/app/config
+      - ./Data:/app/Data
+      - ./output:/app/output
+    
+    restart: "no"

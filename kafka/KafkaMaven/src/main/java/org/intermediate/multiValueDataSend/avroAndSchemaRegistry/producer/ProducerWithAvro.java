@@ -6,6 +6,8 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringSerializer;
 import io.confluent.kafka.serializers.KafkaAvroSerializer;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Properties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,13 +21,14 @@ public class ProducerWithAvro {
         props.put("key.serializer", StringSerializer.class.getName());
         props.put("value.serializer", KafkaAvroSerializer.class.getName());
         props.put("schema.registry.url", "http://172.25.5.7:8081");
-
         KafkaProducer<String, Order> producer = new KafkaProducer<>(props);
 
         try {
+
             Order order = Order.newBuilder()
                     .setOrderId("ORD-10001")
-                    .setCustomer("Budi")
+                    .setCustomerId("Budi")
+                    .setOrder(Arrays.asList("Es Teh", "Nasi Goreng", "Lalapan"))
                     .setAmount(12.5)
                     .build();
 

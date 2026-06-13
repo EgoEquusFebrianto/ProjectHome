@@ -1,0 +1,7 @@
+Solusi 1: install python typing stubs agar IntelliSense lebih lengkap:
+pip install types-confluent-kafka
+
+Solusi 2: Gunakan Pylance (bukan Jedi)
+File → Preferences → Settings
+Cari: Python › Language Server
+Pastikan: Pylance

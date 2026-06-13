@@ -1,52 +1,186 @@
-create schema lab;
-set search_path to lab;
+select current_database();
+show search_path;
+select table_name from information_schema.tables where table_schema = 'public';
 
-create table buku (
-	id_buku varchar(9) not null,
-	nama_buku varchar(100) not null,
-	genre varchar(100) not null,
-	penulis varchar(100) not null,
-	halaman int not null,
-	constraint pk_buku primary key(id_buku)
+create table mahasiswa(
+	mhs_id varchar(9) not null,
+	mhs_name varchar(255) not null,
+	semester SMALLINT not null,
+	sks_lulus integer not null,
+	constraint pk_mahasiswa primary key(mhs_id)
 );
 
-create table members(
-	member_id varchar(9) not null,
-	member_name varchar(100) not null,
-	sex varchar(10) check(sex in ('male', 'Male', 'female', 'Female')) not null, 
-	age int not null,
-	start_membership Date not null,
-	lots_of_borrowing int default 0,
-	constraint PK_members primary key(member_id)
+CREATE TABLE matkul
+(
+	kd_mk VARCHAR(6),
+    nm_mk VARCHAR(50) NOT NULL,
+    sks INTEGER NOT NULL,
+    semester INTEGER NOT NULL,
+    ket TEXT,
+    constraint PK_Matkul PRIMARY KEY (kd_mk)
 );
 
-insert into buku values
-	('A01', 'Old Jenkins cant War?', 'History', 'The Hash Slinging Slasher', 300),
-	('A02', 'The Man Who don''t know Sins', 'Psychology', 'Teddy Armstrong', 345),
-	('A03', 'Cosmos: What is it?', 'Sains', 'Round Robin', 147),
-	('A04', 'World Must Crazy?', 'History', 'The Hash Slinging Slasher', 399),
-	('A05', '100th of Gravity Math', 'Sains', 'Joe Mama', 370),
-	('A06', 'Hash The Golden Cow', 'Psychology', 'Yon Askhaniggham', 190);
+CREATE TABLE mhs
+(
+	nim CHAR(9),
+    nama_mhs VARCHAR(50) NOT NULL,
+    jurusan CHAR(2) NOT NULL,
+    tgl_lahir DATE NOT NULL,
+    constraint PK_Mhs PRIMARY KEY (nim)
+);
 
-INSERT INTO members (member_id, member_name, sex, age, start_membership, lots_of_borrowing) VALUES
-	('M001', 'Andi Wijaya', 'Male', 25, NOW(), 3),
-	('M002', 'Siti Aminah', 'Female', 30, NOW(), 5),
-	('M003', 'Budi Santoso', 'Male', 28, NOW(), 2),
-	('M004', 'Rina Marlina', 'Female', 27, NOW(), 4),
-	('M005', 'Ahmad Fauzi', 'Male', 35, NOW(), 7),
-	('M006', 'Dewi Sartika', 'Female', 22, NOW(), 1),
-	('M007', 'Tono Supriyadi', 'Male', 29, NOW(), 6),
-	('M008', 'Lina Kusuma', 'Female', 24, NOW(), 0),
-	('M009', 'Rizky Hidayat', 'Male', 31, NOW(), 5),
-	('M010', 'Sari Wulandari', 'Female', 26, NOW(), 3);
+CREATE TABLE nilai
+(
+	ta CHAR(8),
+    nim CHAR(9),
+	kd_mk CHAR(6),
+    nilai_angka INTEGER,
+    nilai_huruf CHAR(2),
+    constraint PK_Nilai PRIMARY KEY (ta, nim, kd_mk),
+    constraint FK_Nilai_Mhs FOREIGN KEY (nim) REFERENCES mhs (nim)
+		ON UPDATE CASCADE ON DELETE CASCADE,
+    constraint FK_Nilai_Matkul FOREIGN KEY (kd_mk) REFERENCES matkul (kd_mk)
+		ON UPDATE CASCADE ON DELETE CASCADE
+);
 
-select * from buku;
-alter table buku rename to books;
-alter table books rename column id_buku to book_id;
-alter table books rename nama_buku to book_name;
-alter table books rename penulis to author;
-alter table books rename halaman to pages;
-alter table books rename constraint pk_buku to pk_books;
+select * from mahasiswa;
+select column_name, data_type
+	from information_Schema.columns
+	where table_name = 'mahasiswa' and column_name = 'mhs_id';
+drop table mahasiswa;
+insert into mahasiswa values 
+	('B47', 'Si Ucok', 5, 89);
+update mahasiswa set sks_lulus = 119 where mhs_id = 'B47';	
+delete from mahasiswa where mhs_id = 'B47';
 
-select * from books;
-select * from members;
+alter table mahasiswa
+	alter column mhs_id type integer using mhs_id::integer, -- cast tipe data lama (varchar) ke integer
+	alter column mhs_id set not null;
+alter table mahasiswa
+	add column gender varchar(1) check (gender in ('L', 'P')) not null;
+alter table mahasiswa
+	drop column gender;
+alter table mahasiswa
+	rename column mhs_name to nama_mhs;
+
+-- Alter Method
+
+-- 1. Menambah kolom baru
+-- fomula: ADD [Column] col_name col_definition
+
+Alter table employees 
+	add column age integer,
+	add column address text default '-';
+
+
+-- 2. Menambah constraint naming
+
+-- 2.1 Constraint pengecekan email domain
+Alter table employees
+add constraint check_email 
+check (
+	email like '%@staf.ai.ac.id' or
+	email like '%@staf.dataengineer.ac.id'
+);
+
+-- atau dengan teknik lain dari diatas
+
+Alter table employees
+add constraint check_email
+check (
+	SUBSTRING(email from position('@' in email)) in (
+		'@staf.ai.ac.id',
+		'@staf.dataengineer.ac.id'
+	)
+);
+
+-- 2.2. Constraint Foreign Key (...) References ...
+Alter table employees
+add constraint fk_employee
+foreign key(department_id) references departments(department_id) 
+	on update cascade on delete cascade;
+
+-- 2.3 Constraint Check Expression
+Alter table employees
+add constraint check_salary
+check (salary > 50000);
+
+
+-- 3. Drop {Constraint | Check }
+Alter table employees
+drop constraint check_salary;
+
+
+-- 4. Alter Constraint {Validate and Not Valid}
+Alter table employees
+add constraint check_email
+check(
+	substring(email from position('@' in email)) in (
+		'@staf.ai.ac.id',
+		'@staf.dataengineer.ac.id'		
+	)
+)
+not valid; 
+
+-- setelah data sudah valid, ubah validate constraint secara langsung dengan,
+
+Alter table employees
+validate constraint check_email;
+
+
+-- 5. Constraint Behavior Deferability (deferrable/not deferrable)
+
+-- 5.1. Not Deferrable (Langsung proses), Konsep dari "proses secara langsung setiap data" 
+
+Alter table accounts
+add constraint positive_balance
+check (balance >= 0) NOT DEFERRED; -- Secara default NOT DEFERRED diaplikasikan, jadi tidak perlu di ketik
+
+-- 5.2 Deferrable Initially Immediate, Konsep dari "Di proses langsung, namun dapat ditunda" 
+
+Alter table employees drop constraint if exists fk_department;
+Alter table employees
+add constraint fk_department
+Foreign key(department_id) references departments(department_id)
+	on update cascade
+	on delete cascade
+DEFERRABLE INITIALLY IMMEDIATE;
+
+-- 5.3 Deferrable Initially Deferred, Konsep dari "Dicek saat commit"
+
+Alter table employees drop constraint if exists fk_department;
+Alter table employees
+add constraint fk_department
+Foreign key(department_id) references departments(department_id)
+	on update cascade
+	on delete cascade
+DEFERRABLE INITIALLY DEFERRED;
+
+-- praktiknya, gunakan TCL (Transaction Control Language)
+
+Update departments set department_id = 'DEE2' where department_id = 'DEE1';
+
+BEGIN
+
+Set constraint positive_balance DEFERRED;
+
+Update accounts set balance = balance - 600000 where name_account = 'Bob';
+Update accounts set balance = balance - 600000 where name_account = 'Alice';
+
+COMMIT;
+
+
+insert into departments values
+	('DEE1', 'Data Management'),
+	('DEE2', 'Artificial Intelligence');
+
+insert into employees values 
+	('AB01', 'DEE1', 'Round Robin', 'roundrobin123@staf.dataengineer.ac.id', 'laki-laki', 85000),
+	('AB02', 'DEE2', 'Robin Hood', 'robinhood123@staf.ai.ac.id', 'laki-laki', 86000),
+	('AB03', 'DEE1', 'Hidal Manaque', 'hidalmanaque123@staf.dataengineer.ac.id', 'laki-laki', 87000);
+	
+select * from employees;
+select * from departments;
+
+drop table departments;
+drop table  employees;

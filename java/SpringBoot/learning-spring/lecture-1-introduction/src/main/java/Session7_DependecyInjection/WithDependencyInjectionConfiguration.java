@@ -1,0 +1,25 @@
+package Session7_DependecyInjection;
+
+import data.Fire;
+import data.FireSpitter;
+import data.Spitter;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class WithDependencyInjectionConfiguration {
+    @Bean
+    public Fire fire() {
+        return new Fire();
+    }
+
+    @Bean
+    public Spitter spitter() {
+        return new Spitter();
+    }
+
+    @Bean
+    public FireSpitter fireSpitter(Fire fire, Spitter spitter) {
+        return new FireSpitter(fire, spitter);
+    }
+}

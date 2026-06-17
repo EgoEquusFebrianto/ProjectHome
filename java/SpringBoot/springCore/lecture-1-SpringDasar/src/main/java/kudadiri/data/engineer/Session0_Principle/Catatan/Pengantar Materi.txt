@@ -1,0 +1,75 @@
+|> Apa itu prinsip dalam Software Engineering?
+
+Pertama mari pahami apa itu "prinsip". Prinsip tidak sama dengan Aturan.
+Aturan -> standar atau konvensi spesifik yang disepakati. Contoh:
+- Penulisan penamaan kelas diawali huruf kapital;
+- kurung kuraawal harus ditulis dengan format tertentu, seperti di java
+
+if (kondisi) {
+    // kode diisni
+}
+
+atau di C#
+if (condition)
+{
+    // kode disini
+}
+
+dan lain sebagainya,
+
+Prinsip -> pedoman umum atau fondasi teoritis atau pola pikir yang membantu membuat keputusan desain yang baik. Contoh dalam pembuatan kode program yang bersih, mudah di maintain, dan dapat diskalakan (diperluas).
+
+|> Mengapa kita perlu Prinsip?
+
+Misal, Anda diminta membuat sistem pembayaran. Anda telah menyiapkan versi pertama. katakanlah kode program yang Anda bangun seperti berikut:
+
+class PaymentService {
+    function processPayment() {
+        println("Bayar menggunakan BCA");
+    }
+}
+
+Lalu bos datang dan mangatakan, "Tambahkan bank Mandiri". Anda mengupdate kode program seperti berikut,
+
+class PaymentService {
+    function processPayment(bank: String) {
+        if (bank == "BCA") {
+            println("Bayar menggunakan BCA");
+        } else if (bank == "Mandiri") {
+            println("Bayar menggunakan Mandiri");
+        }
+    }
+}
+
+Lalu keesokan harinya, bos datang dan mengatakan, "Tambahkan lagi bank BRI", besok-nya lagi BNI, BRI, lalu bos bilang lagi "Kita sekarang mendukung pembayaran QRIS". Sudah pasti pengembangan kodenya berbeda lagi, dengan konsep proses payment bank-bank sebelumnya. Jadi pada akhirnya yang didapati:
+
+1. Program masih terus berjalan;
+2. Tidak ada error (mungkin);
+3. Compiler Senang;
+4. Java senang;
+5. Developer mulai menderita;
+
+|> Kenapa Developer mulai menderita?
+Compiler hanya memeriksa:
+1. apakah sintaks benar?
+2. apakah tipe java.spring_pemula.data benar?
+3. apakah method ada?
+
+Compiler tidak dapat memeriksa:
+1. apakah desain program sudah bagus atau layak?
+2. apakah program mudah dikembangkan?
+3. apakah program mudah diuji?
+4. apakah program mudah dimaintain (dirawat)? dll
+
+Kode sebanyak 10.000 baris bisa saja di Compile lalu di Running tanpa ada error, tetapi yang perlu ditanyakan setelahnya adalah
+
+1. "Bagaimana pengembangan selanjutnya?";
+2. "Apakah kode bisa diubah nanti (katakanlah 1 tahun dari sekarang)?" dll
+
+Karena dalam dunia kerja menulis kode program hanya sekitar 10%. Sisahnya adalah "Pemeliharaan Kode". Jadi, sebagian waktu Developer itu bukan membangun kode, tetapi:
+
+1. memperbaiki bug;
+2. menambah fitur;
+3. melakukan refactoring (proses memperbaiki dan merapikan struktur internal kode program yang sudah ada tanpa mengubah fungsi atau perilaku eksternalnya);
+4. melakukan testing;
+5. membaca kode lama (:D); dll

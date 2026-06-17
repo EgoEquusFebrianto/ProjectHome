@@ -1,0 +1,176 @@
+@PathVariable
+Anotasi dalam Spring MVC khususnya java.spring_pemula.controller, untuk mengambil nilai dari bagian dinamis (variabel) di URL EndPoint. Biasanya digunakan dalam RESTful API atau aplikasi web untuk mengambil java.spring_pemula.data spesifik berdasarkan identifier (seperti ID, name, dll) yang ada di URL.
+
+----------------------------------------------------------------------------------------------------------------------
+
+@RequestBody
+Anotasi yang digunakan untuk mengambil JSON dari body request (biasanya dalam JSON/XML) dan mengkonversinya menjadi objek java. Umumnya digunakan pada REST API (Post,Put, dan Patch). Biasanya ini digunakan bersamaan dengan anotasi @VAlid
+
+----------------------------------------------------------------------------------------------------------------------
+
+@Value
+Anotasi Spring yang digunakan untuk mengambil nilai dari konfigurasi (seperti application.properties atau environment variables) dan menyimpannya ke variabel java.
+
+Contoh Impelementasi,
+@RestController
+public class ProductController {
+
+    @Value("${app.product.max-stock}")
+    private int maxStock;  // Nilainya akan diisi 100
+
+    @Value("${app.default.currency}")
+    private String defaultCurrency;  // Nilainya "IDR"
+
+    @PostMapping("/products")
+    public ResponseEntity<String> createProduct(
+        @RequestBody @Valid ProductDTO productDTO,
+        @Value("${app.product.discount}") double discount  // Nilai dari properti
+    ) {
+        if (productDTO.getStock() > maxStock) {
+            throw new RuntimeException("Stok melebihi batas maksimal!");
+        }
+        // Hitung harga setelah diskon
+        double finalPrice = productDTO.getPrice() * (1 - discount);
+        return ResponseEntity.ok("Harga akhir: " + finalPrice + " " + defaultCurrency);
+    }
+}
+
+----------------------------------------------------------------------------------------------------------------------
+
+@Valid
+Anotasi Java Bean Validation (JSR-380) yang memberi tahukan Spring, "Sebelum method dijalankan, tolong validasi dulu objek ini sesuai aturan yang ditentukan didalam class-nya."
+
+contoh implementasi,
+
+public class ProductDTO {
+
+    @NotBlank(message = "Name is required")
+    private String name;
+
+    @NotNull(message = "Price is required")
+    @Min(value = 1000, message = "Price must be at least 1000")
+    private Integer price;
+
+    // Getter & Setter
+}
+
+@PostMapping("/products")
+public ResponseEntity<String> create(@RequestBody @Valid ProductDTO productDTO) {
+
+    // Kalau validasi gagal, method ini tidak akan dijalankan
+    productService.save(productDTO);
+    return ResponseEntity.status(HttpStatus.CREATED).body("OK");
+}
+
+Berikut daftar validasi yang dapat dilakukan
+
+1) Validasi String
+Anotasi              Fungsi                                            Contoh
+@NotNull             Tidak boleh null                                  @NotNull
+@NotBlank            Tidak boleh kosong & tidak hanya spasi            @NotBlank(message = "Name is required")
+@NotEmpty            Tidak null & tidak kosong (""), spasi masih lolos @NotEmpty
+@Size(min=, max=)    Ukuran minimum dan maksimum                       @Size(min=5, max=20)
+@Pattern(regexp="")  Harus sesuai regex tertentu                       @Pattern(regexp="^[A-Za-z0-9]+$")
+@Email               Format email valid                                @Email(message = "Invalid email")
+
+2) Validasi Angka (Integer, Float, Double, dsb)
+| Anotasi                      | Fungsi                                        | Contoh                         |
+| @Min(value=)                 | Nilai minimal                                 | @Min(1)                        |
+| @Max(value=)                 | Nilai maksimal                                | @Max(100)                      |
+| @Positive                    | Harus positif (>0)                            | @Positive                      |
+| @PositiveOrZero              | ≥ 0                                           | @PositiveOrZero                |
+| @Negative                    | Harus negatif (<0)                            | @Negative                      |
+| @NegativeOrZero              | ≤ 0                                           | @NegativeOrZero                |
+| @Digits(integer=, fraction=) | Jumlah digit maksimal untuk integer & desimal | @Digits(integer=5, fraction=2) |
+
+3) Validasi Tanggal/Waktu
+| Anotasi          | Fungsi                      | Contoh           |
+| -----------------| --------------------------- | -----------------|
+| @Past            | Harus tanggal di masa lalu  | @Past            |
+| @PastOrPresent   | Masa lalu atau hari ini     | @PastOrPresent   |
+| @Future          | Harus tanggal di masa depan | @Future          |
+| @FutureOrPresent | Hari ini atau masa depan    | @FutureOrPresent |
+
+4) validasi untuk objek dan koleksi
+| Anotasi   | Fungsi                                      | Contoh                 |
+| ----------| ------------------------------------------- | ---------------------- |
+| @Valid    | Validasi nested object atau list            | @Valid List<ItemDTO>   |
+| @NotEmpty | Tidak boleh kosong (null atau size = 0)     | @NotEmpty List<String> |
+| @NotNull  | Tidak boleh null                            | @NotNull               |
+
+5) Anotasi validasi lainnya
+| Anotasi                    | Fungsi                                 |
+| ---------------------------| -------------------------------------- |
+| @AssertTrue / @AssertFalse | Nilai boolean harus true/false         |
+| @Null                      | Harus null (kebalikan dari @NotNull)   |
+
+----------------------------------------------------------------------------------------------------------------------
+
+@GetMapping("n"), dimana n = rute Web
+→ Anotasi dari Spring MVC yang digunakan untuk memetakan HTTP "GET" request ke method tertentu. Dipakai hanya didalam class yang sudah menjadi Bean (@Controller atau @RestController).
+
+Contoh implementasi,
+
+@RestController
+public class HelloWorld {
+    @GetMapping("/hello")
+    public String sayHello() {
+        return "Hello Spring Boot Web!";
+    }
+}
+
+implementasi berdasarkan ID atau value tertentu
+
+@RestController {
+    @GetMapping("/api/{id}")
+    public List<ProductDTO> sayHello(@PathVariable int id) {
+        return productDTO.getAll();
+    }
+}
+
+----------------------------------------------------------------------------------------------------------------------
+
+@PostMapping("n")
+Anotasi dari SPring MVC yang digunakan untuk menambahkan java.spring_pemula.data baru atau melakukan mekanisme Post dalan RESTful API.
+
+Contoh implementasi
+
+@PostMapping("/products")
+public ResponseEntity<String> createProduct(@RequestBody @Valid ProductDTO productDTO) {
+    productService.save(productDTO);
+    return ResponseEntity.status(HttpStatus.CREATED).body("Product Create");
+}
+
+----------------------------------------------------------------------------------------------------------------------
+
+@PutMapping("n")
+Anotasi yang digunakan untuk mengubah seluruh bagian dari java.spring_pemula.data.
+
+Contoh implementasi,
+@PutMapping("/product/{id}")
+public ResponseEntity<String> updateProduct(@PathVariable int id, @RequestBody ProductDTO productDTO) {
+    productService.update(id, productDTO);
+    return ResponseEntity.ok("Product Update");
+}
+
+----------------------------------------------------------------------------------------------------------------------
+
+@PatchMapping("n")
+Anotasi yang digunakan untuk mengubah sebagian dari java.spring_pemula.data.
+
+contoh implementasi,
+
+@PatchMapping("/product/{id}")
+public ResponseEntity<String> updateProduct(@PathVariable int id, @RequestBody Map<String, Object> updates) {
+    productService.partialUpdate(id, updates);
+    return ResponseEntity.ok("Product Partially update.");
+}
+
+----------------------------------------------------------------------------------------------------------------------
+
+@DeleteMapping("/products/{id}")
+public ResponseEntity<String> deleteProduct(@PathVariable int id) {
+    productService.delete(id);
+    return ResponseEntity.ok("Product deleted.");
+}
+

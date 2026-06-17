@@ -1,0 +1,11 @@
+Request Lifecycle
+
+OVERVIEW
+Apa yang sebenarnya terjadi ketika browser mengakses URL? dan
+Bagaimana request akses bisa sampai ke controller?
+
+Saat user membuka url (misal, http://localhost:8088/employee), bagaimana Spring tahu url tersebut harus ditangani oleh GET request mapping service?
+
+==============================================
+Request Lifecycle adalah Rangkaian proses yang terjadi sejak request dikirim oleh broweser hingga response diterima kembali oleh browser.
+

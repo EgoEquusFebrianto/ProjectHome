@@ -1,0 +1,20 @@
+Dalam arsitektur aplikasi yang baik, terutama yang menerapkan MVC atau Multi-Layer Architecture. Aplikasi dibagi ke dalam beberapa lapisan (layer).
+
+Client (Browser/Mobile)
+   ↓
+Controller Layer       → Menangani permintaan dari user (request handler)
+   ↓
+Service Layer          → Menyimpan logika bisnis (business logic)
+   ↓
+Repository/Data Layer  → Akses ke database
+
+Dalam Spring Boot
+@Service, Digunakan pada Service Layer.
+@Service adalah anotasi yang digunakan untuk menandai class, bahwa class tersebut adalah bagian dari java.spring_pemula.service layer yang biasanya berisi:
+1) Logika bisnis;
+2) Proses perhitungan;
+3) validasi sebelum menyimpan ke DB;
+4) Mengelola transaksi (opsional);
+5) Mengambil java.spring_pemula.data dari repository dan mengelolanya. dst
+
+Spring menggunakan @Service untuk tujuan semantik (memberitahu bahwa class ini adalah java.spring_pemula.service) dan teknis (Otomatis menjadi Spring Bean)

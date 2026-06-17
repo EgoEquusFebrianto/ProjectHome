@@ -1,0 +1,39 @@
+MVC (Model-View-Controller)
+
+OVERVIEW: "Apa sebenarnya yang terjadi ketika user membuka website?"
+saat user membuka url, misal http://localhost:8080. Dibelakang layar terjadi proses:
+
+Browser
+   |
+   | HTTP Request
+   v
+Spring MVC
+   |
+   v
+Controller
+   |
+   v
+View (HTML)
+   |
+   | HTTP Response
+   v
+Browser
+
+==============================================
+Apa itu MVC?
+
+MVC adalah pola arsitektur perangkat lunak yang memisahkan aplikasi dalam 3 komponen utama berdasarkan tugasnya yaitu Model, View, dan Controller.
+
+1. Model
+Model adalah komponen yang mengelola data, logika bisnis, dan aturan aplikasi. Komponen ini berhubungan langsung dengan database untuk mengambil, menyimpan, atau memperbaharui data.
+
+2. View
+View adalah komponen yang bertanggung jawab atas antarmuka pengguna (User Interface). Bagian ini merupakan tampilan visual yang dilihat dan menjadi media interaksi langsung dengan pengguna. Biasanya implementasinya seperti HTML dan CSS.
+
+3. Controller
+Controller adalah komponen yang menjadi jembatan penghubung antara view dan model. Komponen ini menerima perintah/input dari pengguna melalui VIew, mengambil data yang diperlukan dari Model, dan memberikan intruksi kepada View untuk menampilkan hasil.
+
+==============================================
+Apa masalah yang diselesaikan oleh MVC
+
+MVC  menyelesaikan masalah utama dalam pengembangan perangkat lunak yaitu "kekacauan akibat kode yang saling bercampur" seperti kode logika bisnis, data, dan antarmuka pengguna. Tanpa MVC, aplikasi akan sulit dikembangkan, diperbaiki, dan dipelihara seiring bertambahnya ukuran program.

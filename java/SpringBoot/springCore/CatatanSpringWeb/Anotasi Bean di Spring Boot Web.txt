@@ -1,0 +1,13 @@
+@RestController
+→ Anotasi yang mengubah class menjadi bean, dimana ini akan mengaktifkan handler REST(Representational State Transfer). Artinya, semua method dalam class ini akan mengembalikan respon langsung ke client (biasanya dalam format JSON atau String).
+
+Karena, @RestController adalah meta-anotasi yang mendukung @Component, maka setiap class yang ditandai dengan anotasi ini akan secara otomatis menjadi bean dan terdaftar di ApplicationContext.
+
+Catatan
+
+Anotasi kelas bean ini berbeda cara implemtasinya dari anotasi kelas bean lainnya. Letak perbedaannya adalah pemanggilannya. Biasanya saat kita menggunakan @Component, @Service, @Repository, dll pada sebuah kelas, kita perlu melakukan Dependency Injection pada class lain supaya dapat menggunakan class bean yang dibuat tadi. Nah, untuk bean ini kita tidak perlu melakukannya. Mengapa?
+
+karena Spring Boot Web (via Spring MVC) secara otomatis memetakan semua java.spring_pemula.controller yang ditemukan saat aplikasi dijakankan ke HTTP endpoint (routing system). Jadi, Spring Web akan melakukan scan secara otomatis lalu menemukan bean bean mana saja yang datang dari implementasi @RestController, lalu Men-register kelas-kelas ini kedalam Dispatcher Sevlet (semacam "router" internal Spring Web).
+
+----------------------------------------------------------------------------------------------------------------------
+

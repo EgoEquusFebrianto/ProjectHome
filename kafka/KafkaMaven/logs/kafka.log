@@ -1979,7 +1979,7 @@
 	ssl.truststore.type = JKS
 	transaction.timeout.ms = 60000
 	transactional.id = null
-	value.serializer = class org.example.AvroSerializerCustom
+	value.serializer = class org.Lacture1_Introduction.Intro.example.AvroSerializerCustom
 
 2026-04-25 14:21:00 [main] INFO  org.apache.kafka.common.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
 2026-04-25 14:21:00 [main] INFO  org.apache.kafka.clients.producer.KafkaProducer - [Producer clientId=producer-1] Instantiated an idempotent producer.
@@ -2089,7 +2089,7 @@
 	ssl.truststore.type = JKS
 	transaction.timeout.ms = 60000
 	transactional.id = null
-	value.serializer = class org.example.AvroSerializerCustom
+	value.serializer = class org.Lacture1_Introduction.Intro.example.AvroSerializerCustom
 
 2026-04-25 14:39:23 [main] INFO  org.apache.kafka.common.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
 2026-04-25 14:39:23 [main] INFO  org.apache.kafka.clients.producer.KafkaProducer - [Producer clientId=producer-1] Instantiated an idempotent producer.

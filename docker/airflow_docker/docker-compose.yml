@@ -1,0 +1,11 @@
+services:
+
+  airflow-init:
+    image: apache/airflow:3.0.2
+    command: version
+
+  airflow-webserver:
+    image: apache/airflow:3.0.2
+
+  airflow-scheduler:
+    image: apache/airflow:3.0.2

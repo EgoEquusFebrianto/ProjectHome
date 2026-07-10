@@ -1,3 +1,5 @@
+select current_database();
+
 create user airflow with password 'airflow_user_password';
 grant all privileges on database retail_transaction to airflow;
 

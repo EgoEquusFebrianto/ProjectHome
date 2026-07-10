@@ -89,7 +89,7 @@
         </Logger>
 
         <!--         Logger for Kafka -->
-<!--        <Logger name="org.example.Intro" level="info" additivity="false">-->
+<!--        <Logger name="org.Lacture1_Introduction.Intro.example.Intro" level="info" additivity="false">-->
 <!--            <AppenderRef ref="KafkaAppender"/>-->
 <!--        </Logger>-->
 

@@ -27,6 +27,56 @@ dan dikelola oleh Spring". Jika tidak ada anotasi tersebut, Spring tidak tahu ba
 → Anotasi yang digunakan dalam class @Configuration untuk menandai method menghasilkan sebuah Bean yang akan dikelola oleh Spring.
 
 ======================================================================================================
+@Builder
+@Builder adalah anotasi dari library Project Lombok yang digunakan untuk mengimplementasikan Builder Pattern secara otomatis tanpa perlu menulis kode builder secara manual.
+
+Tanpa @Builder
+public class Employee {
+
+    private String name;
+    private int age;
+    private String department;
+    private double salary;
+
+    public Employee(String name,
+                    int age,
+                    String department,
+                    double salary) {
+        this.name = name;
+        this.age = age;
+        this.department = department;
+        this.salary = salary;
+    }
+}
+
+Membuat objeknya:
+Employee employee = new Employee(
+                "Febri",
+                25,
+                "IT",
+                10000000
+        );
+
+Dengan @Builder
+
+@Builder
+public class Employee {
+
+    private String name;
+    private int age;
+    private String department;
+    private double salary;
+}
+
+cara membuat objek:
+Employee employee = Employee.builder()
+                .name("Febri")
+                .age(25)
+                .department("IT")
+                .salary(10000000)
+                .build();
+
+======================================================================================================
 @Component
 → Anotasi Spring yang digunakan untuk menandai sebuah class sebagai Spring Bean. Artinya,
 Spring akan mengenali class tersebut, membuat objeknya (instance), dan menyimpannya ke dalam IoC Container,

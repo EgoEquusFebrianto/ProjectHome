@@ -3,7 +3,7 @@ show search_path;
 set search_path to "example_company";
 select table_name from information_schema.tables where table_schema = 'example_company';
 
--- Data Definition Language (DDL)
+--</> Data Definition Language (DDL)
 -- Target: Database, Schema, Table, Constraint, View, Index
 
 -- DDL Operation: Create, Delete(Drop), Update, Rename, ..
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS projects (
     employee_id VARCHAR(4)
 );
 
--- Data Manipulation languange (DML)
+--</> Data Manipulation languange (DML)
 -- query DML insert, delete, update
 
 INSERT INTO departments VALUES 
@@ -58,7 +58,7 @@ INSERT INTO projects VALUES
 	('P003', 'Audit Internal Q3', 'E001'),   -- Dipimpin oleh Budi (HR)
 	('P004', 'Aplikasi Mobile AI', NULL);    -- Belum ada manajernya (Sengaja NULL)
 
--- Data Query Language (DQL)
+--</> Data Query Language (DQL)
 -- DQL pada dasarnya hanya Select.
 
 select * from departments;
@@ -74,15 +74,206 @@ select lower(gender) as gender, sum(salary) as total_salary
 	group by lower(gender)
 	order by total_salary;
 
--- Data Control Languange (DCL)
+--</> Data Control Languange (DCL)
+select rolname from pg_roles; -- melihat semua roles
+select * from pg_user; -- melihat daftar user db
+select current_user; -- mengembalikan user sekarang
 
--- Transaction Control Language (TCL)
+create user analyst with password 'password123'; -- membuat user
+alter user analyst with password 'new_password'; -- mengubah password user
+drop user analyst; -- menghapus user
 
--- Operators
+-- memberi roles kepada user
+-- contoh table
+create table if not exists example(
+	id BIGINT PRIMARY KEY,
+    name VARCHAR(100)
+);
 
--- Functions
+drop table example;
 
--- Data Types
+-- cek hak pada user
+SELECT * FROM information_schema.role_table_grants WHERE grantee = 'analyst';
+
+grant SELECT on example to analyst;
+grant INSERT on example to analyst;
+grant UPDATE, DELETE on example to analyst;
+grant ALL on example to analyst;
+
+-- mencabut hak
+revoke 
+	DELETE,
+	TRUNCATE,
+	REFERENCES,
+	TRIGGER
+on example
+from analyst;
+
+--</> Transaction Control Language (TCL)
+-- contoh tabel
+create table if not exists accounts(
+    account_id INT PRIMARY KEY,
+    account_owner VARCHAR(50),
+    balance NUMERIC
+);
+
+insert into accounts values 
+	(1, 'Andi', 1000000),
+	(2, 'Budi', 500000);
+
+select * from accounts;
+
+BEGIN; -- Memulai Transaction
+update accounts
+	set balance = balance - 100000
+	where account_id = 1;
+
+update accounts
+	set balance = balance - 100000
+	where account_id = 2;
+
+ROLLBACK; -- membatalkan seluruh perubahan sejak begin
+COMMIT; -- Menyimpan perubahan permanen
+
+-- savepoint
+BEGIN;
+update accounts
+	set account_owner = 'Budi Hartono'
+	where account_id = 2;
+
+SAVEPOINT sp1;
+
+insert into accounts values (3, 'Melanin', 500000);
+
+select * from accounts;
+ROLLBACK to SAVEPOINT sp1;
+ROLLBACK;
+COMMIT;
+
+--</> Operators
+
+
+--</> Functions
+create table if not exists stringtab(
+	word1 TEXT not null,
+	word2 text not null
+);
+
+insert into stringtab values 
+	('fancy', 'jacket'),
+	('stuard', 'hogward'),
+	('doubt ', 'manakins'),
+	('uncle', ' bob'),
+	('adam', ' andalman ');
+
+-- String Functions
+select concat(word1, ' ', word2) from stringtab;
+select concat_ws('_', word1, '->', word2) from stringtab;
+select string_agg(word1, '_') from stringtab;
+select
+	word1,
+	right(word1, 3) as tree_words_from_right,
+	left(word1, 3) as tree_words_from_left
+	from stringtab;
+select word1, length(word1) from stringtab;
+select word1, reverse(word1) from stringtab;
+select word1, repeat(word1, 2) from stringtab;
+select
+	word1,
+	SUBSTRING(word1 from 1 for length(word1) - 2)
+	from stringtab;
+select
+	word1,
+	upper(word1),
+	lower(word1)
+	from stringtab;
+select
+	replace(word1, 'a', 'i')
+	from stringtab;
+select
+	word2,
+	replace(word2, ' ', '_'),
+	ltrim(word2),
+	rtrim(word2),
+	trim(word2)
+	from stringtab;
+
+-- Date Functions
+CREATE TABLE example_time (
+    waktu TIMESTAMP
+);
+
+INSERT INTO example_time VALUES
+    ('2026-06-25 08:30:00'),
+    ('2026-06-25 12:15:45'),
+    ('2026-06-26 17:00:00'),
+    ('2026-06-27 23:59:59');
+
+select
+	current_date,
+	current_time,
+	current_timestamp,
+	now();
+	
+select
+	extract(day from waktu),
+	extract(month from waktu),
+	extract(year from waktu),
+	date(waktu) -- sama dengan current_date
+	from example_time;
+select
+	waktu + interval '3 days'
+	from example_time; -- menambah interval waktu
+select
+	current_timestamp as current,
+	waktu,
+	current_timestamp - waktu -- menghitung selisih waktu
+	from example_time;
+
+-- Numeric Function
+create table if not exists example_math(
+	number1 INT,
+	number2 INT
+);
+
+insert into example_math values (3, 5), (13, 17), (21, 19), (10, 13), (31, 20);
+
+SELECT
+    akar_kuadrat,
+    nilai_absolut,
+    logaritma_natural,
+    logaritma_10,
+    ceiling(akar_kuadrat) AS pembulatan_keatas,
+    floor(akar_kuadrat) AS pembulatan_kebawah,
+    round(akar_kuadrat::decimal, 3) AS round_decimal,
+    sign_value,
+    perpangkatan,
+    exponential,
+    akar_4
+FROM (
+    SELECT
+        sqrt(number1) AS akar_kuadrat,
+        abs(number1) AS nilai_absolut,
+        ln(number1) AS logaritma_natural,
+        log(10, number1) AS logaritma_10,
+        sign(number1) AS sign_value,
+        power(number1, 2) AS perpangkatan,
+        exp(number1) AS exponential,
+    FROM example_math
+) AS subquery;
+
+-- Aggregation Function
+select 
+	avg(number1),
+	min(number1),
+	max(number1),
+	stddev(number1),
+	variance(number1),
+	sum(number1),
+	count(number1)
+from example_math;
+
+--</> Data Types
 
 
 

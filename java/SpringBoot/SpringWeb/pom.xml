@@ -23,7 +23,9 @@
 	</developers>
 	<modules>
 		<module>UseCase-1-Insurance</module>
-	</modules>
+		<module>UseCase-2-LibraryManagement</module>
+        <module>UserCase-3-RetailWithStreamProcessing</module>
+    </modules>
 	<scm>
 		<connection/>
 		<developerConnection/>

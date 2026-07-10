@@ -25,6 +25,7 @@
 		<module>lecture-1-SpringDasar</module>
 		<module>lecture-2-SpringWebDasar</module>
         <module>lecture-3-SpringWebMenengah</module>
+        <module>lecture-4-SpringWebMenengahContinuous</module>
     </modules>
 	<scm>
 		<connection/>

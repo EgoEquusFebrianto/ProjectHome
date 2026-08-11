@@ -1,0 +1,327 @@
+masuk ke terminal vps
+
+ssh username@port_vps
+
+kemudian update dan upgrade OS Ubuntu
+
+kemudian, izinkan port koneksi dengan update rules firewall dengan perintah
+
+ufw = uncomplecated firewall
+
+sudo unf allow OpenSSH -> ini port dari ssh 22/tcp
+
+untuk membuka port web
+membuka web http  = sudo ufw allow http  -> port 80
+membuka web https = sudo ufw allow https -> port 443
+
+kemudian buka port database (contoh mysql) <opsional>
+sudo ufw allow mysql
+
+setelah rules di update di firewall "enable" setiap portnya dengan
+
+sudo ufw enable
+
+lalu y (yes)
+
+lalu cek dengan | sudo ufw status
+
+kemudian install
+sudo apt install nginx -y
+sudo apt install software-properties-common -y
+
+opsional:
+sudo apt install build-essential -y
+
+kemudian,
+sudo add-apt-repository ppa:ondrej/php -y
+sudo apt update
+
+selanjutnya extention php
+
+sudo apt install -y php8.3 php8.3-cli php8.3-fpm php8.3-common php8.3-pgsql php8.3-mbstring php8.3-xml php8.3-curl php8.3-zip php8.3-gd php8.3-bcmath php8.3-intl php8.3-soap php8.3-readline
+
+Daftar diatas """
+sudo apt install -y \
+php8.3 \
+php8.3-cli \
+php8.3-fpm \
+php8.3-common \
+php8.3-pgsql \
+php8.3-mbstring \
+php8.3-xml \
+php8.3-curl \
+php8.3-zip \
+php8.3-gd \
+php8.3-bcmath \
+php8.3-intl \
+php8.3-soap \
+php8.3-readline
+""
+
+kemudian install composer (dari website resmi: getcomposer.org/download):
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "if (hash_file('sha384', 'composer-setup.php') === 'c8b085408188070d5f52bcfe4ecfbee5f727afa458b2573b8eaaf77b3419b0bf2768dc67c86944da1544f06fa544fd47') { echo 'Installer verified'.PHP_EOL; } else { echo 'Installer corrupt'.PHP_EOL; unlink('composer-setup.php'); exit(1); }"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
+
+lalu:
+sudo mv composer.phar /usr/local/bin/composer
+
+kemudian update pengaturan <OPSIONAL>,
+sudo nano /etc/php/8.3/fpm/php.ini
+
+upload_max_filesize = 20M
+post_max_size = 20M
+date.timezone = Asia/Jakarta
+memory_limit = 256M
+max_execution_time = 120
+
+ctrl + o, enter, lalu ctrl + x
+terakhir: sudo systemctl restart php8.3-fpm
+
+
+kemudian, install database <postgresql>
+sudo apt update
+sudo apt install postgresql postgresql-contrib -y
+
+cek, sudo systemctl status postgresql == HARUS STATUS |> active (exited)
+
+kemudian login ke postgresql
+
+psql -u postgres psql
+
+kemudian jalankan script:
+create database ecommerce_db;
+create user ecommerce_user with password 'password';
+grant all privileges on database ecommerce_db to ecommerce_user;
+\c ecommerce_db
+GRANT ALL ON SCHEMA public TO ecommerce_user;
+ALTER SCHEMA public OWNER TO ecommerce_user;
+\q
+
+kemudian, cek apakah bisa login dengan:
+psql -h localhost -U ecommerce_user -d ecommerce_db
+kemudian masukkan password, jika berhasil quit.
+
+selanjutnya, misal psql --version = 16
+jalankan,
+sudo nano /etc/postgresql/16/main/pg_hba.conf
+
+pastikan pengaturan,
+listen_addresses = 'localhost'
+
+lalu save dan keluar.
+
+kemudian
+sudo nano /etc/postgresql/16/main/pg_hba.conf
+Pastikan ada baris:
+
+local   all             all                                     scram-sha-256
+atau
+local   all             all                                     md5
+
+lalu restart: sudo systemctl restart postgresql
+
+kemudian clone repository git, kedalam /var/www/
+contoh: sudo git clone https://github.com/EgoEquusFebrianto/K-Shop-E-Commerce-Project-backend-with-laravel.git ecommerce-laravel
+
+kemudian, cd ecommerce-laravel
+
+
+====<OPTIONAL>=======
+sudo chown -R www-data:www-data /var/www/ecommercekudadiri.my.id
+sudo chmod -R 755 /var/www/ecommercekudadiri.my.id
+=====================
+
+cd ecommerce-laravel
+composer install --optimize-autoloader
+
+kemudian,
+sudo cp .env.example .env
+sudo php artisan key:generate
+
+kemudian,
+sudo nano .env
+
+ubah:
+APP_ENV=production
+APP_DEBUG=false
+APP_URL=https://ecommercekudadiri.my.id # nama domain
+
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_DATABASE=ecommerce_db
+DB_USERNAME=ecommerce_user
+DB_PASSWORD=********
+
+FILESYSTEM_DISK=public
+
+save, kemudian: sudo php artisan storage:link
+
+kemudian, jalankan:
+php artisan migrate --force
+php artisan migrate --force
+sudo php artisan optimize
+
+sudo php artisan config:cache
+sudo php artisan route:cache
+sudo php artisan view:cache
+
+NOTE jika mengubah .env laravel, jalankan: sudo php artisan config:clear && sudo php artisan config:cache
+
+Install Node Js
+curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+sudo apt install -y nodejs
+
+=================== DEPLOYMENT=======================
+
+masuk ke front-end dan jalankan perintah,
+
+sudo npm install
+sudo npm run build
+
+<Tips copy gambar>: sudo cp -r assets/website/* backend_ecommerce/storage/app/public/
+
+lalu,
+sudo nano /etc/nginx/sites-available/ecommerce
+
+dan isi:
+
+server {
+    listen 80;
+    listen [::]:80;
+
+    server_name ecommercekudadiri.my.id www.ecommercekudadiri.my.id;
+
+    # =========================
+    # React Frontend
+    # =========================
+    root /var/www/ecommercekudadiri.my.id/ecommerce-laravel/frontend_ecommerce/dist;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    # =========================
+    # Laravel Storage
+    # =========================
+    location /storage/ {
+        alias /var/www/ecommercekudadiri.my.id/ecommerce-laravel/backend_ecommerce/public/storage/;
+        access_log off;
+        expires 30d;
+    }
+
+    # =========================
+    # Laravel API
+    # =========================
+    # location /api {
+    #     root /var/www/ecommercekudadiri.my.id/ecommerce-laravel/backend_ecommerce/public;
+    #     index index.php;
+    #     try_files $uri /index.php?$query_string;
+    # }
+	
+    location /api {
+        root /var/www/ecommercekudadiri.my.id/ecommerce-laravel/backend_ecommerce/public;
+        try_files /index.php?$query_string;
+    }
+
+    location ~ \.php$ {
+        root /var/www/ecommercekudadiri.my.id/ecommerce-laravel/backend_ecommerce/public;
+
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/run/php/php8.3-fpm.sock;
+
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+
+    location ~ /\. {
+        deny all;
+    }
+
+    client_max_body_size 20M;
+}
+
+================<> VERSI PORT</>===================
+server {
+    listen 80;
+    listen [::]:80;
+
+    server_name 103.55.38.32;
+
+    root /var/www/ecommercekudadiri.my.id/ecommerce-laravel/frontend_ecommerce/dist;
+    index index.html;
+
+    # =========================
+    # React SPA
+    # =========================
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    # =========================
+    # Laravel Storage
+    # =========================
+    location /storage/ {
+        alias /var/www/ecommercekudadiri.my.id/ecommerce-laravel/backend_ecommerce/public/storage/;
+        access_log off;
+        expires 30d;
+    }
+
+    # =========================
+    # Laravel API
+    # =========================
+    location /api/ {
+        root /var/www/ecommercekudadiri.my.id/ecommerce-laravel/backend_ecommerce/public;
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location ~ ^/index\.php(/|$) {
+        root /var/www/ecommercekudadiri.my.id/ecommerce-laravel/backend_ecommerce/public;
+
+        fastcgi_pass unix:/run/php/php8.3-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+
+        include fastcgi_params;
+        fastcgi_hide_header X-Powered-By;
+    }
+
+    location ~ /\. {
+        deny all;
+    }
+
+    client_max_body_size 20M;
+}
+==========================UNTUK LATIHAN=============================
+
+Lalu aktifkan site:
+sudo ln -s /etc/nginx/sites-available/ecommerce /etc/nginx/sites-enabled/
+
+Test konfigurasi: sudo nginx -t
+reload: sudo systemctl reload nginx
+
+kemudian lakukan:
+
+sudo chown -R kudadiri724:www-data /var/www/ecommercekudadiri.my.id
+
+<optional>
+sudo find /var/www/ecommercekudadiri.my.id -type d -exec chmod 755 {} \;
+sudo find /var/www/ecommercekudadiri.my.id -type f -exec chmod 644 {} \;
+
+khusus Laravel:
+
+cd /var/www/ecommercekudadiri.my.id/ecommerce-laravel/backend_ecommerce
+sudo chgrp -R www-data storage bootstrap/cache
+sudo chmod -R 775 storage bootstrap/cache
+
+
+tambahan:
+
+menonaktifkan site nginx default: sudo unlink /etc/nginx/sites-enabled/default
+cek: ls -l /etc/nginx/sites-enabled
+test
+
+FYI:
+jika ada masalah pada proses deploy tanya AI.

@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: diy3times
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  jwt:
+    secret-key: B2Z/kXESx/yJxg56dxvWmUBIFJnm0wMRcA01z//vNaGgYgukgCvgFJL9yrXpIs3yA7VuFA+AK10pE0IQ1yRggw==
+    expiration: 86400000

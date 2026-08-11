@@ -1,0 +1,47 @@
+##########################################
+## INSTALANSI OpenSearch
+##########################################
+
+1. download dan extract file zip opensearch;
+2. tambahkan environment variabel berikut:
+
+OPENSEARCH_JAVA_HOME = D:\Program Files\Java\jdk-21.0.12 (sesuaikan path java, min versi 21)
+OPENSEARCH_INITIAL_ADMIN_PASSWORD = <ketikkan-password>
+
+3. buka ..\config\opensearch.yml dan atur pengaturannya seperti berikut:
+
+cluster.name: opensearch-cluster
+
+node.name: node-1
+
+network.host: localhost
+
+http.port: 9200
+
+discovery.type: single-node
+
+plugins.security.disabled: true
+
+4. atur config\jvm.options, atur jumlah akumulasi penggunaan memori ram yang diizinkan.
+
+(default)
+-Xms1g
+-Xmx1g
+
+(misal)
+-Xms512m
+-Xmx512m
+
+5. buka ..\bin dan jalankan perintah .\opensearch.bat, jika tidak ada error buka http://localhost:9092, tunggu sampai muncul json seperti berikut:
+{
+  "name": "node-1",
+  "cluster_name": "opensearch-cluster",
+  "version": {
+....
+
+
+##########################################
+## INSTALANSI OpenSearch Dashboard
+##########################################
+
+1. 

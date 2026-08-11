@@ -1,0 +1,17 @@
+Buatkan:
+
+1. Buat Entity User dan Role
+2. Buat Repository User dan Role
+3. Buat DTO Request dan Response User (LoginRequest dan RegisterRequest)
+4. Hubungkan Entity User dengan Spring, dengan cara membuat CustomUserDetails yang mengimplementasikan class UserDetails
+5. Buat CustomUserDetailsService dengan mengimplementasikan UseDetailsService
+6. Buat Class SecurityConfig yang memiliki 3 Method Bean yaitu PasswordEncoder, AuthenticationManager, dan SecurityFilterChain
+7. Buat Secret Key dan tempatkan di Application properties
+8. buat JWT Service
+9. Buat AuthService
+10. Buat JwtAuthenticationFilter
+11. Inject kembali ke SecurityConfig penerapan JWT yang sudah dibuat
+12. Buat CurrentUserService agar mengambil sesi user setiap kali membutuhkan data user yang telah terverifikasi
+
+
+d

@@ -14,6 +14,7 @@ Meta-Commands
 12) \? = Menampilkan bantuan semua perintah \;
 13) \h = Bantuan untuk perintah SQL, misalnya \h SELECT.
 14) \dn = Menampilkan daftar skema di database saat ini.
+15) \du = Menampilkan daftar user.
 
 Perbedaan fingsi kutip 1, 2, dan tanpa kutip.
 1) Kutip 1 (') berfungsi untuk menyatakan string literal (contoh '132', 'abcd');

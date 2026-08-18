@@ -1,0 +1,91 @@
+dependensi:
+
+composer require laravel/sanctum laravel/pint --dev barryvdh/laravel-debugbar --dev
+
+===============================================================================
+OPTIONAL: <untuk memasukkan dokumentasi kode yang tidak terdeteksi di vscode>:
+composer require --dev barryvdh/laravel-ide-helper
+php artisan ide-helper:generate
+===============================================================================
+
+jalankan perintah ini untuk membuat personal_access_token table: 
+php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
+lalu jalankan php artisan migrate
+
+buat tabel database: 
+catatan: users-table dibiarkan <default>
+
+php artisan make:migration create_roles_table
+php artisan make:migration create_categories_table
+php artisan make:migration create_products_table
+php artisan make:migration create_carts_table
+php artisan make:migration create_orders_table
+php artisan make:migration create_order_items_table
+
+jika file php migration sudah dibuat dan ditambahkan kontennya, jalankan
+php artisan migrate
+
+untuk membuat tabel-tabel ke database
+
+[Untuk Copy]
+php artisan make:migration create_roles_table && php artisan make:migration create_categories_table && php artisan make:migration create_products_table && php artisan make:migration create_carts_table && php artisan make:migration create_orders_table && php artisan make:migration create_order_items_table
+
+buat model:
+php artisan make:model Role
+php artisan make:model Category
+php artisan make:model Product
+php artisan make:model Cart
+php artisan make:model Order
+php artisan make:model OrderItem
+
+[untuk copy]
+php artisan make:model Role && php artisan make:model Category && php artisan make:model Product && php artisan make:model Cart && php artisan make:model Order && php artisan make:model OrderItem
+
+buat seeder:
+php artisan make:seeder RoleSeeder
+php artisan make:seeder CategorySeeder
+php artisan make:seeder ProductSeeder
+
+setelah seed berhasil dibuat,
+jalankan perintah
+php artisan migrate:fresh --seed
+
+ini akan membuat ulang tabel database, dan memasukkan data yang dibuat pada seed secara langsung
+
+[untuk copy]
+php artisan make:seeder RoleSeeder && php artisan make:seeder CategorySeeder && php artisan make:seeder ProductSeeder
+
+buat controller:
+php artisan make:controller Api/AuthController
+
+buat form request:
+php artisan make:request Auth/RegisterRequest && php artisan make:request Auth/LoginRequest
+
+buat api resource (user):
+php artisan make:resource UserResource
+
+buat file api routes (jika tidak ada)
+php artisan install:api 
+
+jika ada konfirmasi:
+Would you like to run all pending database migrations? (yes/no) [yes]:
+
+> <enter saja>
+
+Controller tabmahan:
+php artisan make:controller Api/CategoryController
+php artisan make:controller Api/ProductController
+php artisan make:controller Api/OrderController
+
+
+Resource Lainnya:
+php artisan make:resource CategoryResource
+php artisan make:resource ProductResource
+php artisan make:resource OrderResource
+
+Request lainnya:
+php artisan make:request StoreCartRequest
+php artisan make:request UpdateCartRequest
+
+Membuat symbolic link (akses gambar via storage)
+php artisan storage:link
